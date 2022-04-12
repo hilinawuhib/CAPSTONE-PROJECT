@@ -17,16 +17,29 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const MyNavBar = () => {
   return (
-    <AppBar position="static">
+    <AppBar
+      position="static"
+      style={{ background: "#ffffff", color: "#000000" }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
-            variant="h6"
+            variant="h1"
             noWrap
             component="div"
-            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            sx={{ mr: 3, display: { xs: "none", md: "flex" } }}
           >
-            LOGO
+            <Box
+              component="img"
+              sx={{
+                height: 100,
+                width: 120,
+                maxHeight: { xs: 233, md: 167 },
+                maxWidth: { xs: 350, md: 250 },
+              }}
+              alt="logo"
+              src="./EduKidss.png"
+            />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -67,13 +80,14 @@ const MyNavBar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
           >
-            LOGO
+            
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
+                textAlign="center"
                 key={page}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "black" }}
               >
                 {page}
               </Button>
@@ -83,7 +97,7 @@ const MyNavBar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src="" />
               </IconButton>
             </Tooltip>
             <Menu
