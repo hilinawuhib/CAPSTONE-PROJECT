@@ -12,14 +12,14 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 
-const pages = ["Home", "Courses", "Login"];
+const pages = ["Home", "About", "Courses", "Login", "Register"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const MyNavBar = () => {
   return (
     <AppBar
       position="static"
-      style={{ background: "#ffffff", color: "#000000" }}
+      style={{ background: "transparent", color: "#000000" }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -79,9 +79,7 @@ const MyNavBar = () => {
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
-          >
-            
-          </Typography>
+          ></Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
