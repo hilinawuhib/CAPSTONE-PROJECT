@@ -10,6 +10,9 @@
   font-family: 'Poppins', sans-serif;
   font-family: 'Rubik', sans-serif;
 }
+body{
+background-color:white;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
