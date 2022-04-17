@@ -12,7 +12,7 @@ const MyFooter = () => {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid item xs={6} md={8}>
-          <h4>EduKids.inc</h4>
+          <h4>EduKids</h4>
         </Grid>
         <Grid item xs={6} md={4}>
           <h4 style={{ fontWeight:"bold",paddingLeft:"80px"}}>
