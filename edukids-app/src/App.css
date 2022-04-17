@@ -47,3 +47,8 @@ background-color:white;
     transform: rotate(360deg);
   }
 }
+body {
+  background-image:url("https://boshomeschooling.com/wp-content/uploads/2019/11/Background-blog.jpg");
+  height : 100%;
+ 
+}

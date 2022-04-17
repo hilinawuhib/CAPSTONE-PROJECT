@@ -11,15 +11,16 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import { Link } from "react-router-dom";
 
-const pages = ["Home", "About", "Courses", "Login", "Register"];
+// const pages = ["Home", "About", "Courses"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const MyNavBar = () => {
   return (
     <AppBar
       position="static"
-      style={{ background: "transparent", color: "#000000" }}
+      style={{ background: "rgb(244, 244, 247)", color: "#000000", height: 80 }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -32,13 +33,13 @@ const MyNavBar = () => {
             <Box
               component="img"
               sx={{
-                height: 100,
+                height: 40,
                 width: 120,
                 maxHeight: { xs: 233, md: 167 },
                 maxWidth: { xs: 350, md: 250 },
               }}
               alt="logo"
-              src="./EduKidss.png"
+              src="./edulogos.png"
             />
           </Typography>
 
@@ -66,13 +67,7 @@ const MyNavBar = () => {
               sx={{
                 display: { xs: "block", md: "none" },
               }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+            ></Menu>
           </Box>
           <Typography
             variant="h6"
@@ -81,15 +76,30 @@ const MyNavBar = () => {
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
           ></Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                textAlign="center"
-                key={page}
-                sx={{ my: 2, color: "black" }}
-              >
-                {page}
-              </Button>
-            ))}
+            <Button
+              component={Link}
+              to="/"
+              textAlign="center"
+              sx={{ my: 2, color: "black" }}
+            >
+              Home
+            </Button>
+            {/* <Button
+              component={Link}
+              to="/About"
+              textAlign="center"
+              sx={{ my: 2, color: "black" }}
+            >
+              About
+            </Button> */}
+            <Button
+              component={Link}
+              to="/courses"
+              textAlign="center"
+              sx={{ my: 2, color: "black" }}
+            >
+              Courses
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
