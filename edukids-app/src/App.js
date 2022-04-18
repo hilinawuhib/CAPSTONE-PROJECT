@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RegisterForm from "./components/RegisterForm";
 import Loginpage from "./components/LoginPage";
 import MyCourse from "./components/MyCourse";
+import Moreinfo from "./components/Moreinfo";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <div>
                 <MyNavBar />
                 <MyJumbotron />
+                <Moreinfo />
                 <MyFooter />
               </div>
             }
@@ -28,7 +30,6 @@ function App() {
             path="/courses"
             element={
               <div>
-                <MyNavBar />
                 <MyCourse />
               </div>
             }

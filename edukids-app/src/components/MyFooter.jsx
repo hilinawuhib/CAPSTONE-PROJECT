@@ -15,7 +15,7 @@ const MyFooter = () => {
           <h4>EduKids</h4>
         </Grid>
         <Grid item xs={6} md={4}>
-          <h4 style={{ fontWeight:"bold",paddingLeft:"80px"}}>
+          <h4 style={{ fontWeight:"bold",marginLeft:"80px"}}>
             <FacebookIcon /> <TwitterIcon />
             <InstagramIcon />
           </h4>

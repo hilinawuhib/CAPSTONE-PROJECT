@@ -103,7 +103,7 @@ const MyJumbotron = () => {
             I am a teacher
           </Button>
         </div>
-        <Box sx={{ flexGrow: 1 }}>
+        {/* <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={4}>
             <Grid
               item
@@ -132,7 +132,7 @@ const MyJumbotron = () => {
               <h4> some image here </h4>
             </Grid>
           </Grid>
-        </Box>
+        </Box> */}
       </div>
     </Card>
   );

@@ -11,6 +11,16 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Paper from "@mui/material/Paper";
+import InputBase from "@mui/material/InputBase";
+import Divider from "@mui/material/Divider";
+
+import SearchIcon from "@mui/icons-material/Search";
+import DirectionsIcon from "@mui/icons-material/Directions";
 import { Link } from "react-router-dom";
 
 // const pages = ["Home", "About", "Courses"];
@@ -20,7 +30,7 @@ const MyNavBar = () => {
   return (
     <AppBar
       position="static"
-      style={{ background: "rgb(244, 244, 247)", color: "#000000", height: 80 }}
+      style={{ background: "white", color: "#000000", height: 80 }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -84,14 +94,7 @@ const MyNavBar = () => {
             >
               Home
             </Button>
-            {/* <Button
-              component={Link}
-              to="/About"
-              textAlign="center"
-              sx={{ my: 2, color: "black" }}
-            >
-              About
-            </Button> */}
+
             <Button
               component={Link}
               to="/courses"
@@ -100,12 +103,34 @@ const MyNavBar = () => {
             >
               Courses
             </Button>
+            <Button textAlign="center" sx={{ my: 2, color: "black" }}>
+              Contact Us
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="" />
+                {/* <Avatar alt="Remy Sharp" src="" /> */}
+                <Paper
+                  component="form"
+                  sx={{
+                    p: "2px 4px",
+                    display: "flex",
+                    alignItems: "center",
+                    width: 400,
+                  }}
+                >
+                  <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Search " />
+                  <IconButton
+                    type="submit"
+                    sx={{ p: "10px" }}
+                    aria-label="search"
+                  >
+                    <SearchIcon />
+                  </IconButton>
+                  <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+                </Paper>
               </IconButton>
             </Tooltip>
             <Menu
