@@ -26,15 +26,7 @@ function App() {
             }
           ></Route>
           <Route path="/register" element={<RegisterForm />}></Route>
-          <Route
-            path="/login"
-            element={
-              <div>
-                <MyNavBar />
-                <Loginpage />
-              </div>
-            }
-          ></Route>
+          <Route path="/login" element={<Loginpage />}></Route>
           <Route
             path="/courses"
             element={

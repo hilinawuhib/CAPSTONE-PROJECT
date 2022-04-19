@@ -37,7 +37,7 @@ const Loginpage = () => {
             alignItems: "center",
           }}
         >
-          <Box
+          {/* <Box
             component="img"
             sx={{
               height: 40,
@@ -47,10 +47,10 @@ const Loginpage = () => {
             }}
             alt="logo"
             src="./edulogos.png"
-          />
-          <Typography component="h1" variant="h5">
+          /> */}
+          <h2>
             Login
-          </Typography>
+          </h2>
           <Box
             component="form"
             onSubmit={handleSubmit}
@@ -84,6 +84,8 @@ const Loginpage = () => {
               label="Remember me"
             />
             <Button
+            component={Link}
+            to="/"
               type="submit"
               fullWidth
               variant="contained"

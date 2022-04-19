@@ -27,6 +27,16 @@ const RegisterForm = () => {
 
   return (
     <div className="register-bg">
+      <h1
+        style={{
+          top: 100,
+          textAlign: "left",
+          marginLeft:"50px"
+        }}
+      >
+        {" "}
+        Welcome to Edukids!
+      </h1>
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
@@ -38,7 +48,7 @@ const RegisterForm = () => {
               alignItems: "center",
             }}
           >
-            <Box
+            {/* <Box
               component="img"
               sx={{
                 height: 40,
@@ -48,11 +58,11 @@ const RegisterForm = () => {
               }}
               alt="logo"
               src="./edulogos.png"
-            />
+            /> */}
 
-            <Typography component="h1" variant="h5">
-              Sign up
-            </Typography>
+            <h2>
+             Sign Up
+            </h2>
             <Box
               component="form"
               noValidate

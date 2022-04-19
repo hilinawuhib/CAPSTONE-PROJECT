@@ -51,7 +51,7 @@ const MyJumbotron = () => {
         />
         <div
           style={{
-            fontSize: "30px",
+            fontSize: "40px",
             width: "30%",
             position: "absolute",
             color: "black",
@@ -76,9 +76,12 @@ const MyJumbotron = () => {
           }}
         >
           {" "}
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl
-          eros, pulvinar facilisis justo mollis, auctor consequat urna. Morbi a
-          bibendum metus. Donec scelerisque sollicitudin enim eu venenatis.
+          <h3>
+            {" "}
+            Free ,Fun and Easy learning management system for kids - enjoy the
+            difference with our worldclass Tutors!
+          </h3>
+          <h3>For more info Register now!</h3>
           <Button
             component={Link}
             to="/register"
