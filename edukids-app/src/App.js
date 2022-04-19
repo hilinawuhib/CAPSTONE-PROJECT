@@ -7,6 +7,7 @@ import RegisterForm from "./components/RegisterForm";
 import Loginpage from "./components/LoginPage";
 import MyCourse from "./components/MyCourse";
 import Moreinfo from "./components/Moreinfo";
+import CourseDetail from "./components/CourseDetail";
 
 function App() {
   return (
@@ -25,12 +26,30 @@ function App() {
             }
           ></Route>
           <Route path="/register" element={<RegisterForm />}></Route>
-          <Route path="/login" element={<Loginpage />}></Route>
+          <Route
+            path="/login"
+            element={
+              <div>
+                <MyNavBar />
+                <Loginpage />
+              </div>
+            }
+          ></Route>
           <Route
             path="/courses"
             element={
               <div>
+                <MyNavBar />
                 <MyCourse />
+              </div>
+            }
+          ></Route>
+          <Route
+            path="/coursedetail"
+            element={
+              <div>
+                <MyNavBar />
+                <CourseDetail />
               </div>
             }
           ></Route>
