@@ -97,7 +97,7 @@ const Moreinfo = () => {
 
         <CardActions>
           <div>
-            <h3>English Language</h3>
+            <h3>English</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
               nisl eros, pulvinar facilisis justo mollis, auctor consequat urna.
