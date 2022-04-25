@@ -1,33 +1,3 @@
-// import * as React from "react";
-// import { styled } from "@mui/material/styles";
-// import Grid from "@mui/material/Grid";
-// import Paper from "@mui/material/Paper";
-// import Typography from "@mui/material/Typography";
-// import ButtonBase from "@mui/material/ButtonBase";
-
-// const Img = styled("img")({
-//   margin: "auto",
-//   display: "block",
-//   width: "100%",
-//   height: "100%",
-// });
-
-// const MyJumbotron = () => {
-//   return (
-//     <Paper>
-//       <Grid>
-//         <Grid item>
-//           <Img
-//             alt="img"
-//             src="https://www.lingoace.com/sg/wp-content/uploads/sites/7/2021/06/shutterstock_1977650486-copy.jpg"
-//           />
-
-//         </Grid>
-//       </Grid>
-//     </Paper>
-//   );
-// };
-// export default MyJumbotron;
 import React from "react";
 import Card from "@material-ui/core/Card";
 import { Link } from "react-router-dom";
@@ -78,7 +48,7 @@ const MyJumbotron = () => {
           {" "}
           <h3>
             {" "}
-            Free ,Fun and Easy learning management system for kids - enjoy the
+            Free , Fun and Easy learning management system for kids - enjoy the
             difference with our worldclass Tutors!
           </h3>
           <h3>For more info Register now!</h3>

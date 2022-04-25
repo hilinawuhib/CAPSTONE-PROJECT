@@ -13,14 +13,14 @@ const MyFooter = () => {
       <hr />
       <Grid container spacing={1}>
         <Grid item xs={4} md={4}>
-          <h4>EduKids</h4>
+          <h4>something</h4>
           <p>lorem ipsum</p>
           <p>lorem ipsum</p>
           <p>lorem ipsum</p>
           <p>lorem ipsum</p>
         </Grid>
         <Grid item xs={4} md={4}>
-          <h4>EduKids</h4>
+          <h4>something</h4>
           <p>lorem ipsum</p>
           <p>lorem ipsum</p>
           <p>lorem ipsum</p>
