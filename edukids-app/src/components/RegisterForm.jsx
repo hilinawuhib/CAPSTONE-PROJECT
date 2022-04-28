@@ -43,10 +43,10 @@ const RegisterForm = () => {
       });
       if (res.ok) {
         setRegistration({
-          first_name:"",
-          last_name:"",
-          email:"",
-          password:"",
+          first_name: "",
+          last_name: "",
+          email: "",
+          password: "",
         });
       } else {
         console.log("error");
