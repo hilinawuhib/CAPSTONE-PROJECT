@@ -1,22 +1,21 @@
-import { SET_USER_NAME } from '../actions'
-import { initialState } from '../store'
-
+import { LOGIN_REQUEST } from "../action";
+import { initialState } from "../store";
 
 const userReducer = (state = initialState.user, action) => {
   switch (action.type) {
-    case SET_USER_NAME:
+    case LOGIN_REQUEST:
       return {
         ...state,
-        first_name:action.payload,
-        last_name:action.payload,
-        email:action.payload,
-        password:action.payload,
-        role:action.payload
-      }
+        first_name: action.payload,
+        last_name: action.payload,
+        email: action.payload,
+        password: action.payload,
+        role: action.payload,
+      };
 
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default userReducer
+export default userReducer;

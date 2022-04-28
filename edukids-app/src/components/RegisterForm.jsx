@@ -5,6 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import FormGroup from "@mui/material/FormGroup";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -18,11 +19,6 @@ const theme = createTheme();
 const RegisterForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
   };
 
   return (
@@ -31,7 +27,7 @@ const RegisterForm = () => {
         style={{
           top: 100,
           textAlign: "left",
-          marginLeft:"50px"
+          marginLeft: "50px",
         }}
       >
         {" "}
@@ -60,9 +56,7 @@ const RegisterForm = () => {
               src="./edulogos.png"
             /> */}
 
-            <h2>
-             Sign Up
-            </h2>
+            <h2>Sign Up</h2>
             <Box
               component="form"
               noValidate
@@ -124,14 +118,24 @@ const RegisterForm = () => {
                     autoComplete="new-password"
                   />
                 </Grid>
-                {/* <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
-                  }
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid> */}
+                <Grid item xs={12}>
+                  <h4>Role</h4>
+                  <FormGroup
+                    style={{
+                      display: "inline-block",
+                      top: 100,
+                    }}
+                  >
+                    <FormControlLabel
+                      control={<Checkbox color="primary" />}
+                      label="Parent"
+                    />
+                    <FormControlLabel
+                      control={<Checkbox color="primary" />}
+                      label="Tutor"
+                    />
+                  </FormGroup>
+                </Grid>
               </Grid>
               <Button
                 type="submit"

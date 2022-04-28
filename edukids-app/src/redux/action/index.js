@@ -1,16 +1,8 @@
-export const SET_USER_NAME = "SET_USER_NAME";
+export const LOGIN_REQUEST = 'login_request';
+export const LOGIN_SUCCESS = 'login_success';
+export const LOGIN_FAILURE = 'login_failure';
+export const REGISTER_REQUEST = 'register_request';
+export const REGISTER_SUCCESS = 'register_success';
+export const REGISTER_FAILURE = 'register_failure';
 
-export const setUsernameAction = (
-  first_name,
-  last_name,
-  email,
-  password,
-  role
-) => ({
-  type: SET_USER_NAME,
-  payload: first_name,
-  last_name,
-  email,
-  password,
-  role,
-});
+
