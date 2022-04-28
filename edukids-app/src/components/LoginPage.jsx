@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -16,13 +17,37 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 const theme = createTheme();
 
 const Loginpage = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
+  const [login, setLogin] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleInput = (fieldName, value) => {
+    setLogin({
+      ...login,
+      [fieldName]: value,
     });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      let res = await fetch("http://localhost:3007/users/login", {
+        method: "POST",
+        body: JSON.stringify(),
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      if (res.ok) {
+        setLogin({
+          email: "",
+          password: "",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -48,9 +73,7 @@ const Loginpage = () => {
             alt="logo"
             src="./edulogos.png"
           /> */}
-          <h2>
-            Login
-          </h2>
+          <h2>Login</h2>
           <Box
             component="form"
             onSubmit={handleSubmit}
@@ -58,7 +81,9 @@ const Loginpage = () => {
             sx={{ mt: 1 }}
           >
             <TextField
-             variant="filled" color="primary" focused
+              variant="filled"
+              color="primary"
+              focused
               margin="normal"
               required
               fullWidth
@@ -67,9 +92,15 @@ const Loginpage = () => {
               name="email"
               autoComplete="email"
               autoFocus
+              value={login.email}
+              onChange={(e) => {
+                handleInput("email", e.target.value);
+              }}
             />
             <TextField
-             variant="filled" color="primary" focused
+              variant="filled"
+              color="primary"
+              focused
               margin="normal"
               required
               fullWidth
@@ -78,14 +109,18 @@ const Loginpage = () => {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={login.password}
+              onChange={(e) => {
+                handleInput("password", e.target.value);
+              }}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
             <Button
-            component={Link}
-            to="/"
+              component={Link}
+              to="/"
               type="submit"
               fullWidth
               variant="contained"

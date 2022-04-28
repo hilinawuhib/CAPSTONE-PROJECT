@@ -1,5 +1,5 @@
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
-import thunk from "react-thunk";
+import thunk from "redux-thunk";
 import userReducer from "../reducers/userReducer";
 const aComposeFunction = window._REDUX_DEVROOLS_EXTENSION_COMPOSE__ || compose;
 export const initialState = {
@@ -12,7 +12,7 @@ export const initialState = {
   },
 };
 const bigReducer = combineReducers({
-  userReducer,
+  user: userReducer,
 });
 export const configureStore = createStore(
   bigReducer,

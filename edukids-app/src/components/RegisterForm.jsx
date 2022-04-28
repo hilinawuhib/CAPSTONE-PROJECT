@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -17,8 +18,42 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 const theme = createTheme();
 
 const RegisterForm = () => {
-  const handleSubmit = (e) => {
+  const [registration, setRegistration] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    password: "",
+  });
+
+  const handleInput = (fieldName, value) => {
+    setRegistration({
+      ...registration,
+      [fieldName]: value,
+    });
+  };
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      let res = await fetch("http://localhost:3007/users/register", {
+        method: "POST",
+        body: JSON.stringify(registration),
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      if (res.ok) {
+        setRegistration({
+          first_name:"",
+          last_name:"",
+          email:"",
+          password:"",
+        });
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -76,6 +111,10 @@ const RegisterForm = () => {
                     id="firstName"
                     label="First Name"
                     autoFocus
+                    value={registration.first_name}
+                    onChange={(e) => {
+                      handleInput("first_name", e.target.value);
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -89,6 +128,10 @@ const RegisterForm = () => {
                     label="Last Name"
                     name="lastName"
                     autoComplete="family-name"
+                    value={registration.last_name}
+                    onChange={(e) => {
+                      handleInput("last_name", e.target.value);
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -102,6 +145,10 @@ const RegisterForm = () => {
                     label="Email Address"
                     name="email"
                     autoComplete="email"
+                    value={registration.email}
+                    onChange={(e) => {
+                      handleInput("email", e.target.value);
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -116,6 +163,10 @@ const RegisterForm = () => {
                     type="password"
                     id="password"
                     autoComplete="new-password"
+                    value={registration.password}
+                    onChange={(e) => {
+                      handleInput("password", e.target.value);
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12}>
