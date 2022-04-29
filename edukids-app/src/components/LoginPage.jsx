@@ -37,6 +37,7 @@ const Loginpage = () => {
         body: JSON.stringify(),
         headers: {
           "Content-type": "application/json",
+          
         },
       });
       if (res.ok) {
@@ -119,9 +120,7 @@ const Loginpage = () => {
               label="Remember me"
             />
             <Button
-              component={Link}
-              to="/"
-              type="submit"
+          type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
