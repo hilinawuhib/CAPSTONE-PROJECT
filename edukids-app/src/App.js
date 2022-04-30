@@ -7,7 +7,7 @@ import RegisterForm from "./components/RegisterForm";
 import Loginpage from "./components/LoginPage";
 import MyCourse from "./components/MyCourse";
 import Moreinfo from "./components/Moreinfo";
-import CourseDetail from "./components/CourseDetail";
+import Addcourses from "./components/Addcourses";
 
 function App() {
   return (
@@ -41,7 +41,7 @@ function App() {
             element={
               <div>
                 <MyNavBar />
-                <CourseDetail />
+                <Addcourses />
               </div>
             }
           ></Route>
