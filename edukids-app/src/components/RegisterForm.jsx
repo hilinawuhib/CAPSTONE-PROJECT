@@ -91,7 +91,7 @@ const RegisterForm = () => {
               src="./edulogos.png"
             /> */}
 
-            <h2>Sign Up</h2>
+            <h2>Register</h2>
             <Box
               component="form"
               noValidate

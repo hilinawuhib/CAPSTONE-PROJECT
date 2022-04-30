@@ -5,7 +5,8 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
+import AddIcon from '@mui/icons-material/Add';
 import { Link } from "react-router-dom";
 const MyCourse = () => {
   return (
@@ -38,7 +39,7 @@ const MyCourse = () => {
         </CardContent>
         <CardActions>
           <Button component={Link}
-            to="/coursedetail"size="small"><ArrowForwardIosIcon/></Button>
+            to="/coursedetail"size="small"><AddIcon/></Button>
         </CardActions>
       </Card>
     </>
