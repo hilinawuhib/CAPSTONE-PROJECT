@@ -37,7 +37,8 @@ const Loginpage = () => {
         body: JSON.stringify(),
         headers: {
           "Content-type": "application/json",
-          accessToken:localStorage.getItem("accessToken"),
+
+          token: localStorage.getItem("token"),
         },
       });
       if (res.ok) {
