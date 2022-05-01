@@ -34,17 +34,23 @@ const MyCourse = () => {
     <>
       {courses.map((c) => (
         <Card
-          style={{
-            fontSize: "30px",
-            width: "30%",
-            position: "absolute",
-            color: "black",
-            top: 150,
-            left: "10%",
-            fontWeight: "bold",
-            textAlign: "left",
-          }}
-          sx={{ maxWidth: 345, marginTop: "50", marginLeft: "100" }}
+           style={{
+             flexDirection:"column",
+
+             display:"inline-flex",
+             marginLeft:"100px",
+             marginRight:"100px",
+             marginTop:"100px"
+          //   fontSize: "30px",
+          //   width: "30%",
+          //   position: "absolute",
+          //   color: "black",
+          //   top: 150,
+          //   left: "10%",
+          //   fontWeight: "bold",
+          //   textAlign: "left",
+           }}
+          sx={{ maxWidth: 350, marginTop: "50", marginLeft: "100" }}
         >
           <CardMedia
             component="img"
