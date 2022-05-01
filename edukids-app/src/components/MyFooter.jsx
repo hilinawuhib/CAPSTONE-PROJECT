@@ -17,6 +17,17 @@ const MyFooter = () => {
       <hr />
       <Grid container spacing={1}>
         <Grid item xs={4} md={4}>
+          <Box
+            component="img"
+            sx={{
+              height: 40,
+              width: 120,
+              maxHeight: { xs: 233, md: 167 },
+              maxWidth: { xs: 350, md: 250 },
+            }}
+            alt="logo"
+            src="./edulogos.png"
+          />
           <h4 style={{ textAlign: "center" }}> About the company </h4>
           <p style={{ marginLeft: "80px", textAlign: "center" }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

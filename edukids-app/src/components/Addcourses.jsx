@@ -5,7 +5,7 @@ import TextField from "@mui/material/TextField";
 const Addcourses = () => {
   return (
     <div>
-      <h4 style={{ marginTop: "50px" }}> Course Details</h4>
+      <h4 style={{ marginTop: "50px" }}> Add Course Details</h4>
 
       <Box
         sx={{

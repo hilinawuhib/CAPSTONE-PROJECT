@@ -16,36 +16,40 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme();
 
-const Loginpage = () => {
-  const [login, setLogin] = useState({
-    email: "",
-    password: "",
-  });
+const Loginpage = ({ email,password }) => {
+  // const [login, setLogin] = useState({
+  //   email: "",
+  //   password: "",
+  // });
 
-  const handleInput = (fieldName, value) => {
-    setLogin({
-      ...login,
-      [fieldName]: value,
-    });
-  };
+  // const handleInput = (fieldName, value) => {
+  //   setLogin({
+  //     ...login,
+  //     [fieldName]: value,
+  //   });
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       let res = await fetch("http://localhost:3007/users/login", {
         method: "POST",
-        body: JSON.stringify(),
+        body: JSON.stringify({email,password}),
         headers: {
           "Content-type": "application/json",
-
           token: localStorage.getItem("token"),
+      
         },
       });
+      let data = await res.json();
+      console.log("response", data);
       if (res.ok) {
-        setLogin({
-          email: "",
-          password: "",
-        });
+        // setLogin({
+        //   email: "",
+        //   password: "",
+        // });
+        localStorage.setItem("token", data.token);
+        return data
       }
     } catch (error) {
       console.log(error);
@@ -94,10 +98,8 @@ const Loginpage = () => {
               name="email"
               autoComplete="email"
               autoFocus
-              value={login.email}
-              onChange={(e) => {
-                handleInput("email", e.target.value);
-              }}
+              value={email}
+             
             />
             <TextField
               variant="filled"
@@ -111,10 +113,8 @@ const Loginpage = () => {
               type="password"
               id="password"
               autoComplete="current-password"
-              value={login.password}
-              onChange={(e) => {
-                handleInput("password", e.target.value);
-              }}
+              value={password}
+            
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

@@ -1,9 +1,9 @@
-import { LOGIN_REQUEST } from "../action";
+import { REGISTER_REQUEST } from "../action";
 import { initialState } from "../store";
 
 const userReducer = (state = initialState.user, action) => {
   switch (action.type) {
-    case LOGIN_REQUEST:
+    case REGISTER_REQUEST:
       return {
         ...state,
         first_name: action.payload,

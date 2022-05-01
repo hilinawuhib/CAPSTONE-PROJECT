@@ -41,7 +41,11 @@ const RegisterForm = () => {
           "Content-type": "application/json",
         },
       });
+      let data = await res.json();
+      console.log(data.token);
       if (res.ok) {
+        localStorage.setItem("token", data.token);
+
         setRegistration({
           first_name: "",
           last_name: "",
