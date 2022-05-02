@@ -9,18 +9,22 @@ import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import { connect } from "react-redux";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
+import { login } from "../redux/action";
 const theme = createTheme();
 
-const Loginpage = ({ email,password }) => {
-  // const [login, setLogin] = useState({
-  //   email: "",
-  //   password: "",
-  // });
+const Loginpage = ( {
+  isAuthenticated,
+  error,
+  login
+ 
+}) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('')
 
   // const handleInput = (fieldName, value) => {
   //   setLogin({
@@ -28,33 +32,35 @@ const Loginpage = ({ email,password }) => {
   //     [fieldName]: value,
   //   });
   // };
+   const handleEmail = (e) => setEmail(e.target.value);
+  const handlePassword = (e) => setPassword(e.target.value);
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
-      let res = await fetch("http://localhost:3007/users/login", {
-        method: "POST",
-        body: JSON.stringify({email,password}),
-        headers: {
-          "Content-type": "application/json",
-          token: localStorage.getItem("token"),
-      
-        },
-      });
-      let data = await res.json();
-      console.log("response", data);
-      if (res.ok) {
-        // setLogin({
-        //   email: "",
-        //   password: "",
-        // });
-        localStorage.setItem("token", data.token);
-        return data
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    const user = { email, password };
+     login(user)
+    };
+  //   try {
+  //      const res = await fetch("http://localhost:3007/users/login", {
+  //       method: "POST",
+  //       body: JSON.stringify({ email, password }),
+  //       headers: {
+  //         "Content-type": "application/json",
+  //       },
+  //     });
+  //     let data = await res.json();
+  //     console.log("response", data);
+  //     if (res.ok) {
+  //       // setLogin({
+  //       //   email: "",
+  //       //   password: "",
+  //       // });
+  //       localStorage.setItem("token", data.token);
+  //       return res.data;
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <ThemeProvider theme={theme}>
@@ -99,7 +105,7 @@ const Loginpage = ({ email,password }) => {
               autoComplete="email"
               autoFocus
               value={email}
-             
+              onChange={handleEmail}
             />
             <TextField
               variant="filled"
@@ -114,7 +120,7 @@ const Loginpage = ({ email,password }) => {
               id="password"
               autoComplete="current-password"
               value={password}
-            
+              onChange={handlePassword}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -122,6 +128,7 @@ const Loginpage = ({ email,password }) => {
             />
             <Button
               type="submit"
+              onClick={handleSubmit}
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
@@ -146,4 +153,10 @@ const Loginpage = ({ email,password }) => {
     </ThemeProvider>
   );
 };
-export default Loginpage;
+
+const mapStateToProps = (state) => ({
+  //isAuthenticated: state.auth.isAuthenticated,
+  error: state.error
+});
+
+export default connect(mapStateToProps, { login })(Loginpage);

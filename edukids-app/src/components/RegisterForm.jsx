@@ -10,80 +10,85 @@ import FormGroup from "@mui/material/FormGroup";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import { connect } from "react-redux";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { register } from "../redux/action";
 
 const theme = createTheme();
 
-const RegisterForm = () => {
-  const [registration, setRegistration] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    password: "",
-  });
+const RegisterForm = ({ isAuthenticated, error, register }) => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleInput = (fieldName, value) => {
-    setRegistration({
-      ...registration,
-      [fieldName]: value,
-    });
-  };
+  const handleFirstName= (e) => setFirstName(e.target.value);
+  const handleLastName = (e) => setLastName(e.target.value);
+  const handleEmail = (e) => setEmail(e.target.value);
+  const handlePassword = (e) => setPassword(e.target.value);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      let res = await fetch("http://localhost:3007/users/register", {
-        method: "POST",
-        body: JSON.stringify(registration),
-        headers: {
-          "Content-type": "application/json",
-        },
-      });
-      let data = await res.json();
-      console.log(data.token);
-      if (res.ok) {
-        localStorage.setItem("token", data.token);
+    const user = {
+      firstName,
+      lastName,
+      email,
+      password,
+    };
+    register(user)}
+    //   try {
+    //     let res = await fetch("http://localhost:3007/users/register", {
+    //       method: "POST",
+    //       body: JSON.stringify(registration),
+    //       headers: {
+    //         "Content-type": "application/json",
+    //       },
+    //     });
+    //     let data = await res.json();
+    //     console.log(data.token);
+    //     if (res.ok) {
+    //       localStorage.setItem("token", data.token);
 
-        setRegistration({
-          first_name: "",
-          last_name: "",
-          email: "",
-          password: "",
-        });
-      } else {
-        console.log("error");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    //       setRegistration({
+    //         first_name: "",
+    //         last_name: "",
+    //         email: "",
+    //         password: "",
+    //       });
+    //     } else {
+    //       console.log("error");
+    //     }
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
 
-  return (
-    <div className="register-bg">
-      <h1
-        style={{
-          top: 100,
-          textAlign: "left",
-          marginLeft: "50px",
-        }}
-      >
-        {" "}
-        Welcome to Edukids!
-      </h1>
-      <ThemeProvider theme={theme}>
-        <Container component="main" maxWidth="xs">
-          <CssBaseline />
-          <Box
-            sx={{
-              marginTop: 8,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            {/* <Box
+    return (
+      <div className="register-bg">
+        <h1
+          style={{
+            top: 100,
+            textAlign: "left",
+            marginLeft: "50px",
+          }}
+        >
+          {" "}
+          Welcome to Edukids!
+        </h1>
+        <ThemeProvider theme={theme}>
+          <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <Box
+              sx={{
+                marginTop: 8,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              {/* <Box
               component="img"
               sx={{
                 height: 40,
@@ -95,124 +100,122 @@ const RegisterForm = () => {
               src="./edulogos.png"
             /> */}
 
-            <h2>Register</h2>
-            <Box
-              component="form"
-              noValidate
-              onSubmit={handleSubmit}
-              sx={{ mt: 3 }}
-            >
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    variant="filled"
-                    color="primary"
-                    focused
-                    autoComplete="given-name"
-                    name="firstName"
-                    required
-                    fullWidth
-                    id="firstName"
-                    label="First Name"
-                    autoFocus
-                    value={registration.first_name}
-                    onChange={(e) => {
-                      handleInput("first_name", e.target.value);
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    variant="filled"
-                    color="primary"
-                    focused
-                    required
-                    fullWidth
-                    id="lastName"
-                    label="Last Name"
-                    name="lastName"
-                    autoComplete="family-name"
-                    value={registration.last_name}
-                    onChange={(e) => {
-                      handleInput("last_name", e.target.value);
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    variant="filled"
-                    color="primary"
-                    focused
-                    required
-                    fullWidth
-                    id="email"
-                    label="Email Address"
-                    name="email"
-                    autoComplete="email"
-                    value={registration.email}
-                    onChange={(e) => {
-                      handleInput("email", e.target.value);
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    variant="filled"
-                    color="primary"
-                    focused
-                    required
-                    fullWidth
-                    name="password"
-                    label="Password"
-                    type="password"
-                    id="password"
-                    autoComplete="new-password"
-                    value={registration.password}
-                    onChange={(e) => {
-                      handleInput("password", e.target.value);
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <h4>Role</h4>
-                  <FormGroup
-                    style={{
-                      display: "inline-block",
-                      top: 100,
-                    }}
-                  >
-                    <FormControlLabel
-                      control={<Checkbox color="primary" />}
-                      label="Parent"
-                    />
-                    <FormControlLabel
-                      control={<Checkbox color="primary" />}
-                      label="Tutor"
-                    />
-                  </FormGroup>
-                </Grid>
-              </Grid>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+              <h2>Register</h2>
+              <Box
+                component="form"
+                noValidate
+                onSubmit={handleSubmit}
+                sx={{ mt: 3 }}
               >
-                Register
-              </Button>
-              <Grid container justifyContent="flex-end">
-                <Grid item>
-                  <Link href="/login" variant="body2">
-                    Already have an account? Log in
-                  </Link>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      variant="filled"
+                      color="primary"
+                      focused
+                      autoComplete="given-name"
+                      name="firstName"
+                      required
+                      fullWidth
+                      id="firstName"
+                      label="First Name"
+                      autoFocus
+                      value={firstName}
+                      onChange={handleFirstName}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      variant="filled"
+                      color="primary"
+                      focused
+                      required
+                      fullWidth
+                      id="lastName"
+                      label="Last Name"
+                      name="lastName"
+                      autoComplete="family-name"
+                      value={lastName}
+                      onChange={handleLastName}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      variant="filled"
+                      color="primary"
+                      focused
+                      required
+                      fullWidth
+                      id="email"
+                      label="Email Address"
+                      name="email"
+                      autoComplete="email"
+                      value={email}
+                      onChange={handleEmail}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      variant="filled"
+                      color="primary"
+                      focused
+                      required
+                      fullWidth
+                      name="password"
+                      label="Password"
+                      type="password"
+                      id="password"
+                      autoComplete="new-password"
+                      value={password}
+                      onChange={handlePassword}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <h4>Role</h4>
+                    <FormGroup
+                      style={{
+                        display: "inline-block",
+                        top: 100,
+                      }}
+                    >
+                      <FormControlLabel
+                        control={<Checkbox color="primary" />}
+                        label="Parent"
+                      />
+                      <FormControlLabel
+                        control={<Checkbox color="primary" />}
+                        label="Tutor"
+                      />
+                    </FormGroup>
+                  </Grid>
                 </Grid>
-              </Grid>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  Register
+                </Button>
+                <Grid container justifyContent="flex-end">
+                  <Grid item>
+                    <Link href="/login" variant="body2">
+                      Already have an account? Log in
+                    </Link>
+                  </Grid>
+                </Grid>
+              </Box>
             </Box>
-          </Box>
-          {/* <Copyright sx={{ mt: 5 }} /> */}
-        </Container>
-      </ThemeProvider>
-    </div>
-  );
-};
-export default RegisterForm;
+            {/* <Copyright sx={{ mt: 5 }} /> */}
+          </Container>
+        </ThemeProvider>
+      </div>
+    );
+  };
+
+
+const mapStateToProps = (state) => ({
+  //isAuthenticated: state.auth.isAuthenticated,
+  error: state.error,
+});
+export default connect(mapStateToProps, { register })(RegisterForm);
