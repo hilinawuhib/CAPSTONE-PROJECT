@@ -10,23 +10,19 @@ import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { connect } from "react-redux";
+import FacebookIcon from '@mui/icons-material/Facebook';
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { login } from "../redux/action";
+import GoogleIcon from "@mui/icons-material/Google";
 const theme = createTheme();
 
 const Loginpage = ({ isAuthenticated, error, login }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const handleInput = (fieldName, value) => {
-  //   setLogin({
-  //     ...login,
-  //     [fieldName]: value,
-  //   });
-  // };
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
   const handleSubmit = async (e) => {
@@ -34,7 +30,6 @@ const Loginpage = ({ isAuthenticated, error, login }) => {
     const user = { email, password };
     login(user);
   };
-  
 
   return (
     <ThemeProvider theme={theme}>
@@ -48,7 +43,6 @@ const Loginpage = ({ isAuthenticated, error, login }) => {
             alignItems: "center",
           }}
         >
-         
           <h2>Login</h2>
           <Box
             component="form"
@@ -91,7 +85,6 @@ const Loginpage = ({ isAuthenticated, error, login }) => {
               label="Remember me"
             />
             <Button
-             
               type="submit"
               onClick={handleSubmit}
               fullWidth
@@ -111,6 +104,23 @@ const Loginpage = ({ isAuthenticated, error, login }) => {
                   {"Don't have an account? Register"}
                 </Link>
               </Grid>
+                
+            </Grid>
+            <Grid container style={{marginTop:"30px",marginLeft:"40px"}}>
+              <Grid>
+                <GoogleIcon  sx={{ fontSize: 30 }}/> 
+                <Link>
+                 Login With Google
+                </Link>
+              </Grid>
+              <Grid style={{marginLeft:"10px"}}>
+                <FacebookIcon  sx={{ fontSize: 30 }}/>
+                <Link>
+                 Login With facebook
+                </Link>
+              
+              </Grid>
+                
             </Grid>
           </Box>
         </Box>

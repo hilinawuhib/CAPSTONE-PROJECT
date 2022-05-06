@@ -1,11 +1,13 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom"
 
 const Addcourses = () => {
   return (
     <div>
-      <h4 style={{ marginTop: "50px" }}> Add Course Details</h4>
+      <h4 style={{ marginTop: "50px" }}>Add Course Details</h4>
 
       <Box
         sx={{
@@ -60,12 +62,9 @@ const Addcourses = () => {
           "& > :not(style)": { m: 1 },
         }}
       >
-        <h4> Course material </h4>
-        <TextField
-          style={{ width: "500px" }}
-          helperText="Please upload the content material"
-          id="demo-helper-text-misaligned"
-        />
+        <Button component={Link}
+         to="/coursedetailsanother"
+        variant="contained">Add this course</Button>
       </Box>
     </div>
   );

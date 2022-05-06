@@ -14,7 +14,7 @@ export const loadUser = () => (dispatch, getState) => {
   dispatch({ type: USER_LOADING });
 
   axios
-    .get("http://localhost:3007/users", tokenConfigure(getState))
+    .get("http://localhost:3007/users", tokenConfig(getState))
     .then((response) =>
       dispatch({
         type: USER_LOADED,
@@ -56,12 +56,12 @@ export const register =
   };
 
 export const login =
-  ({ email, password, history }) =>
+  ({ email, password }) =>
   (dispatch) => {
     axios
       .post(
         "http://localhost:3007/users/login",
-        JSON.stringify({ email, password, history }),
+        JSON.stringify({ email, password }),
         {
           headers: {
             "Content-Type": "application/json",
@@ -73,7 +73,6 @@ export const login =
           type: LOGIN_SUCCESS,
           payload: response.data,
         });
-        history.push("/");
       })
       .catch((error) => {
         dispatch();
@@ -83,7 +82,7 @@ export const login =
       });
   };
 
-export const tokenConfigure = (getState) => {
+export const tokenConfig = (getState) => {
   const token = getState().auth.token;
 
   const configure = {
