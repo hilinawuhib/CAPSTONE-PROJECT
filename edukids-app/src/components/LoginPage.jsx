@@ -17,14 +17,9 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { login } from "../redux/action";
 const theme = createTheme();
 
-const Loginpage = ( {
-  isAuthenticated,
-  error,
-  login
- 
-}) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('')
+const Loginpage = ({ isAuthenticated, error, login }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   // const handleInput = (fieldName, value) => {
   //   setLogin({
@@ -32,35 +27,14 @@ const Loginpage = ( {
   //     [fieldName]: value,
   //   });
   // };
-   const handleEmail = (e) => setEmail(e.target.value);
+  const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = { email, password };
-     login(user)
-    };
-  //   try {
-  //      const res = await fetch("http://localhost:3007/users/login", {
-  //       method: "POST",
-  //       body: JSON.stringify({ email, password }),
-  //       headers: {
-  //         "Content-type": "application/json",
-  //       },
-  //     });
-  //     let data = await res.json();
-  //     console.log("response", data);
-  //     if (res.ok) {
-  //       // setLogin({
-  //       //   email: "",
-  //       //   password: "",
-  //       // });
-  //       localStorage.setItem("token", data.token);
-  //       return res.data;
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+    login(user);
+  };
+  
 
   return (
     <ThemeProvider theme={theme}>
@@ -74,17 +48,7 @@ const Loginpage = ( {
             alignItems: "center",
           }}
         >
-          {/* <Box
-            component="img"
-            sx={{
-              height: 40,
-              width: 120,
-              maxHeight: { xs: 233, md: 167 },
-              maxWidth: { xs: 350, md: 250 },
-            }}
-            alt="logo"
-            src="./edulogos.png"
-          /> */}
+         
           <h2>Login</h2>
           <Box
             component="form"
@@ -127,6 +91,7 @@ const Loginpage = ( {
               label="Remember me"
             />
             <Button
+             
               type="submit"
               onClick={handleSubmit}
               fullWidth
@@ -155,8 +120,7 @@ const Loginpage = ( {
 };
 
 const mapStateToProps = (state) => ({
-  //isAuthenticated: state.auth.isAuthenticated,
-  error: state.error
+  error: state.error,
 });
 
 export default connect(mapStateToProps, { login })(Loginpage);
