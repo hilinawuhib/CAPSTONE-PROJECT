@@ -1,17 +1,17 @@
 .App {
   text-align: center;
 }
-*{
-  font-family: 'Fredoka', sans-serif;
-  font-family: 'Josefin Sans', sans-serif;
-  font-family: 'League Spartan', sans-serif;
-  font-family: 'Montserrat', sans-serif;
-  font-family: 'Open Sans', sans-serif;
-  font-family: 'Poppins', sans-serif;
-  font-family: 'Rubik', sans-serif;
+* {
+  font-family: "Fredoka", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "League Spartan", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Rubik", sans-serif;
 }
-body{
-background-color:white;
+body {
+  background-color: white;
 }
 .App-logo {
   height: 40vmin;
@@ -48,7 +48,17 @@ background-color:white;
   }
 }
 body {
-  background-image:url("https://boshomeschooling.com/wp-content/uploads/2019/11/Background-blog.jpg");
-  height : 100%;
- 
+  background-image: url("https://boshomeschooling.com/wp-content/uploads/2019/11/Background-blog.jpg");
+  height: 100%;
+}
+.box-content-1 {
+  margin-top: 50px !important;
+}
+.box-content-2 {
+  margin-top: 50px !important;
+}
+
+.container {
+  margin-left: 50px;
+  margin-right: 50px;
 }

@@ -8,7 +8,7 @@ import Loginpage from "./components/LoginPage";
 import MyCourse from "./components/MyCourse";
 import Moreinfo from "./components/Moreinfo";
 import Addcourses from "./components/Addcourses";
-import CourseDetail from "./components/CourseDetail"
+import CourseDetail from "./components/CourseDetail";
 
 function App() {
   return (
@@ -58,7 +58,7 @@ function App() {
             path="/coursedetailsanother"
             element={
               <div>
-               <CourseDetail/>
+                <CourseDetail />
               </div>
             }
           ></Route>

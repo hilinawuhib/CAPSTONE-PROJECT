@@ -1,72 +1,59 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import { Link } from "react-router-dom"
+import React from "react";
+import ReactQuill from "react-quill";
+import ReactEditor, { modules, formats } from "./ReactQuill";
+import "react-quill/dist/quill.snow.css";
 
-const Addcourses = () => {
+const AddCourse = (props) => {
   return (
-    <div>
-      <h4 style={{ marginTop: "50px" }}>Add Course Details</h4>
+    <div className="container">
+      <div className="content">
+        <h4>Add Course</h4>
+        <form>
+          <div>
+            <div className=" box-content-1 form-group col-md-12">
+              <label className="course-title"> Course Title </label>
 
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          "& > :not(style)": { m: 1 },
-        }}
-      >
-        <h4> Course Name</h4>
-        <TextField
-          style={{ width: "500px" }}
-          helperText="Please enter the course  name"
-          id="demo-helper-text-misaligned"
-        />
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          "& > :not(style)": { m: 1 },
-        }}
-      >
-        <h4> Course Category</h4>
-        <TextField
-          style={{ width: "500px" }}
-          helperText="Please enter the course category "
-          id="demo-helper-text-misaligned"
-        />
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          "& > :not(style)": { m: 1 },
-        }}
-      >
-        <h4> Content </h4>
-        <TextField
-          style={{ width: "500px" }}
-          helperText="Please enter the content description"
-          id="demo-helper-text-misaligned"
-        />
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          "& > :not(style)": { m: 1 },
-        }}
-      >
-        <Button component={Link}
-         to="/coursedetailsanother"
-        variant="contained">Add this course</Button>
-      </Box>
+              <input
+                type="text"
+                name="title"
+                className="form-control"
+                placeholder="Title"
+                required
+              />
+
+              <label className="font-weight-bold"> Course Category </label>
+              <input
+                type="text"
+                name="title"
+                className="form-control"
+                placeholder="Category"
+                required
+              />
+            </div>
+            <div className=" box-content-2 form-group col-md-12 editor">
+              <label className="font-weight-bold">Course Content </label>
+              <ReactEditor toolbarId={"t3"} />
+              <ReactQuill
+                theme="snow"
+                placeholder={"course content goes here"}
+                modules={modules("t3")}
+                formats={formats}
+              />
+            </div>
+            <br />
+
+            <br />
+
+            <div className="form-group col-sm-12 text-right">
+              <button type="submit" className="btn btn__theme">
+                {" "}
+                Submit{" "}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
-export default Addcourses;
+export default AddCourse;
