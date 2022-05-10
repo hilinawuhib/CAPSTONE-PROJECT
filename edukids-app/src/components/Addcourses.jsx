@@ -3,7 +3,7 @@ import ReactQuill from "react-quill";
 import ReactEditor, { modules, formats } from "./ReactQuill";
 import "react-quill/dist/quill.snow.css";
 
-const AddCourse = (props) => {
+const AddCourse = () => {
   return (
     <div className="container">
       <div className="content">

@@ -68,9 +68,7 @@ const MyCourse = () => {
             <Button size="small">Learn More</Button>
           </CardContent>
           <CardActions>
-            <Button component={Link} to="/coursedetail" size="small">
-              <AddIcon /> Add course
-            </Button>
+           
             <Button style={{marginRight:"0px"}} size="small">
             <FavoriteBorderIcon/>
             </Button>
