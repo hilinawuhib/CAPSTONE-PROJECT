@@ -65,7 +65,8 @@ const MyCourse = () => {
             <Typography variant="h5" color="text.secondary">
               Course title:{c.title}
             </Typography>
-            <Button size="small">Learn More</Button>
+            <Button component={Link}
+            to="/CourseDetail"size="small">Details</Button>
           </CardContent>
           <CardActions>
            

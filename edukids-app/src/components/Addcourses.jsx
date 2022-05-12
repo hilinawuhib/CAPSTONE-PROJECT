@@ -7,7 +7,7 @@ const AddCourse = () => {
   return (
     <div className="container">
       <div className="content">
-        <h4>Add Course</h4>
+        <h4>Add Content</h4>
         <form>
           <div>
             <div className=" box-content-1 form-group col-md-12">

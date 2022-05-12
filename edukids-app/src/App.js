@@ -1,5 +1,6 @@
 import "./App.css";
 import MyNavBar from "./components/MyNavbar";
+import MyNav from "./components/MyNav";
 import MyJumbotron from "./components/MyJumbotron";
 import MyFooter from "./components/MyFooter";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -45,17 +46,16 @@ function App() {
               </div>
             }
           ></Route>
-          <Route
-            path="/coursedetail"
+          {/* <Route
+            path="/addcourses"
             element={
               <div>
-                <MyNavBar />
                 <Addcourses />
               </div>
             }
-          ></Route>
+          ></Route> */}
           <Route
-            path="/coursedetailsanother"
+            path="/CourseDetail"
             element={
               <div>
                 <CourseDetail />
