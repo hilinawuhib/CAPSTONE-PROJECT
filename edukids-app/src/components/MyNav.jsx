@@ -30,7 +30,7 @@ const MyNav= () => {
   return (
     <AppBar
       position="static"
-      style={{ background: "white", color: "#000000", height: 80 }}
+      style={{ background: "white", color: "#000000", height: 70 }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -45,95 +45,19 @@ const MyNav= () => {
               sx={{
                 height: 40,
                 width: 120,
-                maxHeight: { xs: 233, md: 167 },
-                maxWidth: { xs: 350, md: 250 },
+                maxHeight: { xs: 233, md: 150 },
+                maxWidth: { xs: 350, md: 200 },
               }}
               alt="logo"
               src="./edulogos.png"
             />
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            ></Menu>
-          </Box>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
-          ></Typography>
+         
+         
          
 
-          <Box sx={{ flexGrow: 0 }} >
-            <Tooltip title="Open settings">
-              <IconButton sx={{ p: 0 }}>
-                {/* <Avatar alt="Remy Sharp" src="" /> */}
-                <Paper
-               
-                  component="form"
-                  sx={{
-                    p: "2px 4px",
-                    display: "flex",
-                    alignItems: "center",
-                    width: 300,
-                    right:"0px"
-                  }}
-                >
-                  <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Search " />
-                  <IconButton
-                    type="submit"
-                    sx={{ p: "10px" }}
-                    aria-label="search"
-                  >
-                    <SearchIcon />
-                  </IconButton>
-                  <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-                </Paper>
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+          
         </Toolbar>
       </Container>
     </AppBar>

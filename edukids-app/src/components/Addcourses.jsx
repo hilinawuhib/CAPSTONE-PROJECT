@@ -7,31 +7,12 @@ const AddCourse = () => {
   return (
     <div className="container">
       <div className="content">
-        <h4>Add Content</h4>
+        <h4>Add Activity </h4>
         <form>
           <div>
-            <div className=" box-content-1 form-group col-md-12">
-              <label className="course-title"> Course Title </label>
-
-              <input
-                type="text"
-                name="title"
-                className="form-control"
-                placeholder="Title"
-                required
-              />
-
-              <label className="font-weight-bold"> Course Category </label>
-              <input
-                type="text"
-                name="title"
-                className="form-control"
-                placeholder="Category"
-                required
-              />
-            </div>
+            
             <div className=" box-content-2 form-group col-md-12 editor">
-              <label className="font-weight-bold">Course Content </label>
+              
               <ReactEditor toolbarId={"t3"} />
               <ReactQuill
                 theme="snow"

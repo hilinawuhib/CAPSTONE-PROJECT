@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 import AddCourse from "./Addcourses";
 import MyNav from "./MyNav";
 
-const CourseDetail=()=> {
+const CourseDetail = () => {
   return (
     <Box sx={{ width: 1 }}>
       <MyNav />
@@ -20,9 +20,17 @@ const CourseDetail=()=> {
         gap={2}
       >
         <Box
-          style={{ backgroundColor: "white", width: "25vw", height: "100vh" }}
+          style={{
+            backgroundColor: "rgb(211, 237, 241)",
+            width: "25vw",
+            height: "100vh",
+          }}
           gridColumn="span 4"
         >
+          <h2>Mathematics</h2>
+          <p>Addition</p>
+          <hr />
+
           <Button
             component={Link}
             to="/addcourses"
@@ -30,11 +38,11 @@ const CourseDetail=()=> {
               display: "flex",
               color: "black",
               margin: "auto",
-              marginTop: "10px",
+              marginTop: "30px",
             }}
           >
             <AddIcon />
-            Add Content
+            Add Activity
           </Button>
         </Box>
         <Box style={{ width: "75vw", height: "100vh" }} gridColumn="span 4">
@@ -43,6 +51,6 @@ const CourseDetail=()=> {
       </Box>
     </Box>
   );
-}
+};
 
-export default CourseDetail
+export default CourseDetail;

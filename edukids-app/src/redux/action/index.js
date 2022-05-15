@@ -9,6 +9,7 @@ import {
   REGISTER_FAIL,
 } from "./constants";
 import axios from "axios";
+import { push } from "react-router-redux";
 
 export const loadUser = () => (dispatch, getState) => {
   dispatch({ type: USER_LOADING });
@@ -48,7 +49,6 @@ export const register =
         })
       )
       .catch((error) => {
-        dispatch();
         dispatch({
           type: REGISTER_FAIL,
         });
@@ -73,9 +73,9 @@ export const login =
           type: LOGIN_SUCCESS,
           payload: response.data,
         });
+        dispatch(push("/"));
       })
       .catch((error) => {
-        dispatch();
         dispatch({
           type: LOGIN_FAIL,
         });
