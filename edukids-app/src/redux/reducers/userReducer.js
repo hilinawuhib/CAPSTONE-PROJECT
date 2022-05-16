@@ -6,17 +6,12 @@ import {
   LOGIN_FAIL,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
+  GET_COURSES,
+  GET_COURSES_FAIL,
 } from "../action/constants";
+import { initialState } from "../store";
 
-
-const initialState = {
- token: localStorage.getItem("token"),
- isAuthenticated: null,
- isLoading: false,
- user: null,
- };
-
-export default function (state = initialState, action) {
+export default function (state = initialState.users, action) {
   switch (action.type) {
     case USER_LOADING:
       return {
@@ -31,12 +26,13 @@ export default function (state = initialState, action) {
         user: action.payload,
       };
     case LOGIN_SUCCESS:
-      return{
+      return {
         ...state,
-        isAuthenticated :true,
-        isLoading:false,
-        user:action.payload
-      }
+        isAuthenticated: true,
+        isLoading: false,
+        user: action.payload,
+      };
+
     case REGISTER_SUCCESS:
       localStorage.setItem("token", action.payload.token);
       return {
