@@ -86,6 +86,8 @@ const Loginpage = ({ isAuthenticated, error, login }) => {
                 label="Remember me"
               />
               <Button
+               component={Link}
+               to="/dashboard"
                 type="submit"
                 onClick={handleSubmit}
                 fullWidth

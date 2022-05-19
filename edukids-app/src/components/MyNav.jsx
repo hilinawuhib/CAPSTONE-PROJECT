@@ -26,7 +26,7 @@ import { Link } from "react-router-dom";
 // const pages = ["Home", "About", "Courses"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-const MyNav= () => {
+const MyNav = () => {
   return (
     <AppBar
       position="static"
@@ -51,13 +51,17 @@ const MyNav= () => {
               alt="logo"
               src="./edulogos.png"
             />
+            <Button
+              component={Link}
+              to="/"
+              style={{
+                marginLeft: "30px",
+                color: "black",
+              }}
+            >
+              Home
+            </Button>
           </Typography>
-
-         
-         
-         
-
-          
         </Toolbar>
       </Container>
     </AppBar>

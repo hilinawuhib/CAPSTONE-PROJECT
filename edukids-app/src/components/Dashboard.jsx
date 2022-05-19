@@ -10,6 +10,9 @@ import Container from "@mui/material/Container";
 import HomeIcon from "@mui/icons-material/Home";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import SettingsIcon from '@mui/icons-material/Settings';
+import InfoIcon from '@mui/icons-material/Info';
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 const Dashboard = () => {
   return (
     <div>
@@ -62,11 +65,18 @@ const Dashboard = () => {
               flexWrap: "wrap",
               alignItems: "center",
               marginLeft: "25%",
-              marginTop: "10%",
+              marginTop:"35px"
+              
             }}
           >
             <HomeIcon />
-            <span>Home</span>
+            <span
+              style={{
+                marginLeft: "10px",
+              }}
+            >
+              Home
+            </span>
           </div>
           <div
             style={{
@@ -74,11 +84,18 @@ const Dashboard = () => {
               flexWrap: "wrap",
               alignItems: "center",
               marginLeft: "25%",
-              marginTop: "10%",
+              marginTop:"20px"
+              
             }}
           >
             <LibraryBooksIcon />
-            <span >Courses</span>
+            <span
+              style={{
+                marginLeft: "10px",
+              }}
+            >
+              Courses
+            </span>
           </div>
           <div
             style={{
@@ -86,11 +103,75 @@ const Dashboard = () => {
               flexWrap: "wrap",
               alignItems: "center",
               marginLeft: "25%",
-              marginTop: "10%",
+              marginTop:"20px"
+             
             }}
           >
             <AccountBoxIcon />
-            <span>Profile</span>
+            <span
+              style={{
+                marginLeft: "10px",
+              }}
+            >
+              Profile
+            </span>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              marginLeft: "25%",
+              marginTop:"20px"
+             
+            }}
+          >
+            <InfoIcon />
+            <span
+              style={{
+                marginLeft: "10px",
+              }}
+            >
+              About
+            </span>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              marginLeft: "25%",
+              marginTop:"20px"
+             
+            }}
+          >
+            <SettingsIcon />
+            <span
+              style={{
+                marginLeft: "10px",
+              }}
+            >
+              Setting
+            </span>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              marginLeft: "25%",
+              marginTop:"20px"
+             
+            }}
+          >
+            <QuestionMarkIcon  />
+            <span
+              style={{
+                marginLeft: "10px",
+              }}
+            >
+             FAQ
+            </span>
           </div>
         </Box>
       </Box>

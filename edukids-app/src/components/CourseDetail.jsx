@@ -1,5 +1,6 @@
 import Grid from "@mui/material/Grid";
-import * as React from "react";
+import * as React  from "react";
+import { useState } from 'react';
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -10,6 +11,7 @@ import AddCourse from "./Addcourses";
 import MyNav from "./MyNav";
 
 const CourseDetail = () => {
+  const [show, setShow] = useState(false);
   return (
     <Box sx={{ width: 1 }}>
       <MyNav />
@@ -27,13 +29,10 @@ const CourseDetail = () => {
           }}
           gridColumn="span 4"
         >
-          <h2>Mathematics</h2>
-          <p>Addition</p>
-          <hr />
+          
 
           <Button
-            component={Link}
-            to="/addcourses"
+            onClick={() => setShow((prev) => !prev)}
             style={{
               display: "flex",
               color: "black",
@@ -45,9 +44,11 @@ const CourseDetail = () => {
             Add Activity
           </Button>
         </Box>
-        <Box style={{ width: "75vw", height: "100vh" }} gridColumn="span 4">
-          <AddCourse />
-        </Box>
+        {show && (
+          <Box style={{ width: "75vw", height: "100vh" }} gridColumn="span 4">
+            <AddCourse />
+          </Box>
+        )}
       </Box>
     </Box>
   );

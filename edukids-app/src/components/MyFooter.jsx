@@ -42,9 +42,9 @@ const MyFooter = () => {
 
         <Grid item xs={6} md={4}>
           <h4 style={{ fontWeight: "bold", marginLeft: "80px" }}>
-            <FacebookIcon /> Facebook <TwitterIcon /> twitter
-            <InstagramIcon />instagram 
-            <LinkedInIcon />linkedin 
+            <FacebookIcon sx={{ marginRight:5 }}  />  <TwitterIcon sx={{ marginRight:5 }}/> 
+            <InstagramIcon sx={{ marginRight:5 }} />
+            <LinkedInIcon />
           </h4>
         </Grid>
         <Grid item xs={6} md={8}>
