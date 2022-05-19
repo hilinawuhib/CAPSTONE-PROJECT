@@ -75,7 +75,8 @@ export const login =
           type: LOGIN_SUCCESS,
           payload: response.data,
         });
-        dispatch(push("/"));
+        dispatch(push('/dashboard'))
+        
       })
       .catch((error) => {
         dispatch({

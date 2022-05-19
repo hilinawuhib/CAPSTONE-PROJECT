@@ -61,7 +61,8 @@ body {
 .container {
   margin-left: 120px;
   margin-right: 120px;
-  
-  
-
+  }
+.login-box{
+  background-color:white;
+  padding:20px;
 }

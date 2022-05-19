@@ -10,7 +10,7 @@ import MyCourse from "./components/MyCourse";
 import Moreinfo from "./components/Moreinfo";
 import Addcourses from "./components/Addcourses";
 import CourseDetail from "./components/CourseDetail";
-
+import Dashboard from"./components/Dashboard"
 function App() {
   return (
     <div className="App">
@@ -59,6 +59,14 @@ function App() {
             element={
               <div>
                 <CourseDetail />
+              </div>
+            }
+          ></Route>
+          <Route
+            path="/Dashboard"
+            element={
+              <div>
+                <Dashboard/>
               </div>
             }
           ></Route>

@@ -25,7 +25,7 @@ const RegisterForm = ({ isAuthenticated, error, register }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleFirstName= (e) => setFirstName(e.target.value);
+  const handleFirstName = (e) => setFirstName(e.target.value);
   const handleLastName = (e) => setLastName(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
@@ -37,35 +37,11 @@ const RegisterForm = ({ isAuthenticated, error, register }) => {
       email,
       password,
     };
-    register(user)}
-    //   try {
-    //     let res = await fetch("http://localhost:3007/users/register", {
-    //       method: "POST",
-    //       body: JSON.stringify(registration),
-    //       headers: {
-    //         "Content-type": "application/json",
-    //       },
-    //     });
-    //     let data = await res.json();
-    //     console.log(data.token);
-    //     if (res.ok) {
-    //       localStorage.setItem("token", data.token);
+    register(user);
+  };
 
-    //       setRegistration({
-    //         first_name: "",
-    //         last_name: "",
-    //         email: "",
-    //         password: "",
-    //       });
-    //     } else {
-    //       console.log("error");
-    //     }
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // };
-
-    return (
+  return (
+    <>
       <div className="register-bg">
         <h1
           style={{
@@ -79,143 +55,133 @@ const RegisterForm = ({ isAuthenticated, error, register }) => {
         </h1>
         <ThemeProvider theme={theme}>
           <Container component="main" maxWidth="xs">
-            <CssBaseline />
-            <Box
-              sx={{
-                marginTop: 8,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              {/* <Box
-              component="img"
-              sx={{
-                height: 40,
-                width: 120,
-                maxHeight: { xs: 233, md: 167 },
-                maxWidth: { xs: 350, md: 250 },
-              }}
-              alt="logo"
-              src="./edulogos.png"
-            /> */}
-
-              <h2>Register</h2>
+            <div className="login-box">
+              <CssBaseline />
               <Box
-                component="form"
-                noValidate
-                onSubmit={handleSubmit}
-                sx={{ mt: 3 }}
+                sx={{
+                  marginTop: 8,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
               >
-                <Grid container spacing={2}>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      variant="filled"
-                      color="primary"
-                      focused
-                      autoComplete="given-name"
-                      name="firstName"
-                      required
-                      fullWidth
-                      id="firstName"
-                      label="First Name"
-                      autoFocus
-                      value={firstName}
-                      onChange={handleFirstName}
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      variant="filled"
-                      color="primary"
-                      focused
-                      required
-                      fullWidth
-                      id="lastName"
-                      label="Last Name"
-                      name="lastName"
-                      autoComplete="family-name"
-                      value={lastName}
-                      onChange={handleLastName}
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      variant="filled"
-                      color="primary"
-                      focused
-                      required
-                      fullWidth
-                      id="email"
-                      label="Email Address"
-                      name="email"
-                      autoComplete="email"
-                      value={email}
-                      onChange={handleEmail}
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      variant="filled"
-                      color="primary"
-                      focused
-                      required
-                      fullWidth
-                      name="password"
-                      label="Password"
-                      type="password"
-                      id="password"
-                      autoComplete="new-password"
-                      value={password}
-                      onChange={handlePassword}
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <h4>Role</h4>
-                    <FormGroup
-                      style={{
-                        display: "inline-block",
-                        top: 100,
-                      }}
-                    >
-                      <FormControlLabel
-                        control={<Checkbox color="primary" />}
-                        label="Parent"
-                      />
-                      <FormControlLabel
-                        control={<Checkbox color="primary" />}
-                        label="Tutor"
-                      />
-                    </FormGroup>
-                  </Grid>
-                </Grid>
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
+                <h2>Register</h2>
+                <Box
+                  component="form"
+                  noValidate
+                  onSubmit={handleSubmit}
+                  sx={{ mt: 3 }}
                 >
-                  Register
-                </Button>
-                <Grid container justifyContent="flex-end">
-                  <Grid item>
-                    <Link href="/login" variant="body2">
-                      Already have an account? Log in
-                    </Link>
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        variant="filled"
+                        color="primary"
+                        focused
+                        autoComplete="given-name"
+                        name="firstName"
+                        required
+                        fullWidth
+                        id="firstName"
+                        label="First Name"
+                        autoFocus
+                        value={firstName}
+                        onChange={handleFirstName}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        variant="filled"
+                        color="primary"
+                        focused
+                        required
+                        fullWidth
+                        id="lastName"
+                        label="Last Name"
+                        name="lastName"
+                        autoComplete="family-name"
+                        value={lastName}
+                        onChange={handleLastName}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        variant="filled"
+                        color="primary"
+                        focused
+                        required
+                        fullWidth
+                        id="email"
+                        label="Email Address"
+                        name="email"
+                        autoComplete="email"
+                        value={email}
+                        onChange={handleEmail}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        variant="filled"
+                        color="primary"
+                        focused
+                        required
+                        fullWidth
+                        name="password"
+                        label="Password"
+                        type="password"
+                        id="password"
+                        autoComplete="new-password"
+                        value={password}
+                        onChange={handlePassword}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <h4>Role</h4>
+                      <FormGroup
+                        style={{
+                          display: "inline-block",
+                          top: 100,
+                        }}
+                      >
+                        <FormControlLabel
+                          control={<Checkbox color="primary" />}
+                          label="Parent"
+                        />
+                        <FormControlLabel
+                          control={<Checkbox color="primary" />}
+                          label="Tutor"
+                        />
+                      </FormGroup>
+                    </Grid>
                   </Grid>
-                </Grid>
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2 }}
+                  >
+                    Register
+                  </Button>
+                  <Grid container justifyContent="flex-end">
+                    <Grid item>
+                      <Link href="/login" variant="body2">
+                        Already have an account? Log in
+                      </Link>
+                    </Grid>
+                  </Grid>
+                </Box>
               </Box>
-            </Box>
-            {/* <Copyright sx={{ mt: 5 }} /> */}
+            </div>
           </Container>
         </ThemeProvider>
       </div>
-    );
-  };
-
+      <div style={{ display: "flex" }}>some image gies here</div>
+    </>
+  );
+};
 
 const mapStateToProps = (state) => ({
-  //isAuthenticated: state.auth.isAuthenticated,
+  isAuthenticated: state.auth.isAuthenticated,
   error: state.error,
 });
 export default connect(mapStateToProps, { register })(RegisterForm);

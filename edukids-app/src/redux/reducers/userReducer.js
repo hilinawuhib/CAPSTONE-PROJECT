@@ -43,6 +43,7 @@ export default function (state = initialState.users, action) {
       };
     case AUTH_ERROR:
     case LOGIN_FAIL:
+      
 
     case REGISTER_FAIL:
       localStorage.removeItem("token");

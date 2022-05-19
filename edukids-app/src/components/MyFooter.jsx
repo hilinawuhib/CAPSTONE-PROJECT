@@ -17,17 +17,7 @@ const MyFooter = () => {
       <hr />
       <Grid container spacing={1}>
         <Grid item xs={4} md={4}>
-          <Box
-            component="img"
-            sx={{
-              height: 40,
-              width: 120,
-              maxHeight: { xs: 233, md: 167 },
-              maxWidth: { xs: 350, md: 250 },
-            }}
-            alt="logo"
-            src="./edulogos.png"
-          />
+          
           <h4 style={{ textAlign: "center" }}> About the company </h4>
           <p style={{ marginLeft: "80px", textAlign: "center" }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -48,23 +38,21 @@ const MyFooter = () => {
             <ContactPhoneIcon />
           </p>
         </Grid>
-        {/* <Grid item xs={4} md={4}>
-          <h4>something</h4>
-          <p>lorem ipsum</p>
-          <p>lorem ipsum</p>
-          <p>lorem ipsum</p>
-          <p>lorem ipsum</p>
-        </Grid> */}
+       
 
         <Grid item xs={6} md={4}>
           <h4 style={{ fontWeight: "bold", marginLeft: "80px" }}>
-            <FacebookIcon /> <TwitterIcon />
-            <InstagramIcon />
-            <LinkedInIcon />
+            <FacebookIcon /> Facebook <TwitterIcon /> twitter
+            <InstagramIcon />instagram 
+            <LinkedInIcon />linkedin 
           </h4>
         </Grid>
         <Grid item xs={6} md={8}>
           <h4>EduKids</h4>
+        </Grid>
+         <Grid item xs={12} md={12}>
+         
+          Created by: Hilina 
         </Grid>
       </Grid>
     </Box>
