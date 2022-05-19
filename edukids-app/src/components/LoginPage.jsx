@@ -10,7 +10,7 @@ import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { connect } from "react-redux";
-import FacebookIcon from '@mui/icons-material/Facebook';
+import FacebookIcon from "@mui/icons-material/Facebook";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
@@ -34,96 +34,97 @@ const Loginpage = ({ isAuthenticated, error, login }) => {
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <h2>Login</h2>
+        <div className="login-box">
+          <CssBaseline />
           <Box
-            component="form"
-            onSubmit={handleSubmit}
-            noValidate
-            sx={{ mt: 1 }}
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
           >
-            <TextField
-              variant="filled"
-              color="primary"
-              focused
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              value={email}
-              onChange={handleEmail}
-            />
-            <TextField
-              variant="filled"
-              color="primary"
-              focused
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              value={password}
-              onChange={handlePassword}
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              onClick={handleSubmit}
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+            <h2>Login</h2>
+            <Box
+              component="form"
+              onSubmit={handleSubmit}
+              noValidate
+              sx={{ mt: 1 }}
             >
-              Login
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
+              <TextField
+                variant="filled"
+                color="primary"
+                focused
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
+                value={email}
+                onChange={handleEmail}
+              />
+              <TextField
+                variant="filled"
+                color="primary"
+                focused
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                value={password}
+                onChange={handlePassword}
+              />
+              <FormControlLabel
+                control={<Checkbox value="remember" color="primary" />}
+                label="Remember me"
+              />
+              <Button
+                type="submit"
+                onClick={handleSubmit}
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Login
+              </Button>
+              <Grid container>
+                <Grid item xs>
+                  <Link href="#" variant="body2">
+                    Forgot password?
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link href="/register" variant="body2">
+                    {"Don't have an account? Register"}
+                  </Link>
+                </Grid>
               </Grid>
-              <Grid item>
-                <Link href="/register" variant="body2">
-                  {"Don't have an account? Register"}
-                </Link>
-              </Grid>
-                
-            </Grid>
-            <Grid container style={{marginTop:"30px",marginLeft:"40px"}}>
-              <Grid>
-                <GoogleIcon  sx={{ fontSize: 30 }}/> 
-                <Link>
-                 Login With Google
-                </Link>
-              </Grid>
-              <Grid style={{marginLeft:"10px"}}>
-                <FacebookIcon  sx={{ fontSize: 30 }}/>
-                <Link>
-                 Login With facebook
-                </Link>
-              
-              </Grid>
-                
-            </Grid>
+            
+                <Grid>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      alignItems: "center",
+                      marginLeft: "25%",
+                      marginTop: "10%",
+                    }}
+                  >
+                    <GoogleIcon sx={{ fontSize: 30 }} />
+                    <span> Login with Google </span>
+                  </div>
+                </Grid>
+            
+            </Box>
           </Box>
-        </Box>
+        </div>
       </Container>
     </ThemeProvider>
   );

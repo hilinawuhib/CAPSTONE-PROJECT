@@ -13,19 +13,29 @@ import AddIcon from "@mui/icons-material/Add";
 import { Link } from "react-router-dom";
 
 const MyCourse = () => {
-  const coursesFromStore = useSelector(
-    (state) => state.course.coursecollection
-  );
-  const dispatch = useDispatch();
+  const [courses, setCourses] = useState([]);
 
- 
+  const fetchCourses = async () => {
+    try {
+      let res = await fetch("http://localhost:3007/courses");
+      if (res.ok) {
+        const data = await res.json();
+        setCourses(data);
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    dispatch(fetchCourses());
+    fetchCourses();
   }, []);
 
   return (
     <>
-      {coursesFromStore.map((c) => (
+      {courses.map((c) => (
         <Card
           style={{
             flexDirection: "column",
@@ -47,12 +57,12 @@ const MyCourse = () => {
             <Typography
               style={{ fontSize: "bold" }}
               gutterBottom
-              variant="h5"
+              variant="h6"
               component="div"
             >
               Course category:{c.category}
             </Typography>
-            <Typography variant="h5" color="text.secondary">
+            <Typography variant="h6" color="text.secondary">
               Course title:{c.title}
             </Typography>
             <Button component={Link} to="/CourseDetail" size="small">

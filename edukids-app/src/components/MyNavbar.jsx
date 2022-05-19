@@ -30,7 +30,7 @@ const MyNavBar = () => {
   return (
     <AppBar
       position="static"
-      style={{ background: "white", color: "#000000", height: 80 }}
+      style={{ background: "white", color: "#000000", height: 75 }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -43,9 +43,9 @@ const MyNavBar = () => {
             <Box
               component="img"
               sx={{
-                height: 40,
+                height: 35,
                 width: 120,
-                maxHeight: { xs: 233, md: 167 },
+                maxHeight: { xs: 230, md: 160 },
                 maxWidth: { xs: 350, md: 250 },
               }}
               alt="logo"
@@ -90,28 +90,27 @@ const MyNavBar = () => {
               component={Link}
               to="/"
               textAlign="center"
-              sx={{ my: 2, color: "black" }}
+              sx={{ my: 1, color: "black" }}
             >
-              Home
+              <h4>Home</h4>
             </Button>
 
             <Button
               component={Link}
               to="/courses"
               textAlign="center"
-              sx={{ my: 2, color: "black" }}
+              sx={{ my: 1, color: "black" }}
             >
-              Courses
+              <h4> Courses</h4>
             </Button>
-            <Button textAlign="center" sx={{ my: 2, color: "black" }}>
-              Contact Us
+            <Button textAlign="center" sx={{ my: 1, color: "black" }}>
+              <h4> Contact Us</h4>
             </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton sx={{ p: 0 }}>
-                {/* <Avatar alt="Remy Sharp" src="" /> */}
                 <Paper
                   component="form"
                   sx={{

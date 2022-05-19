@@ -135,7 +135,7 @@ const RegisterForm = ({ isAuthenticated, error, register }) => {
                         onChange={handlePassword}
                       />
                     </Grid>
-                    <Grid item xs={12}>
+                    {/* <Grid item xs={12}>
                       <h4>Role</h4>
                       <FormGroup
                         style={{
@@ -143,16 +143,16 @@ const RegisterForm = ({ isAuthenticated, error, register }) => {
                           top: 100,
                         }}
                       >
-                        <FormControlLabel
+                         <FormControlLabel
                           control={<Checkbox color="primary" />}
                           label="Parent"
                         />
                         <FormControlLabel
                           control={<Checkbox color="primary" />}
                           label="Tutor"
-                        />
+                        /> 
                       </FormGroup>
-                    </Grid>
+                    </Grid> */}
                   </Grid>
                   <Button
                     type="submit"
@@ -175,13 +175,13 @@ const RegisterForm = ({ isAuthenticated, error, register }) => {
           </Container>
         </ThemeProvider>
       </div>
-      <div style={{ display: "flex" }}>some image gies here</div>
+    
     </>
   );
 };
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
+  
   error: state.error,
 });
 export default connect(mapStateToProps, { register })(RegisterForm);

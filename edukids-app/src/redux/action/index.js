@@ -84,26 +84,26 @@ export const login =
         });
       });
   };
-export const fetchCourses = () => {
-  return async (dispatch, getState) => {
-    const stateRightnow = getState();
-    try {
-      const res = await fetch("http://localhost:3007/courses");
-      if (res.ok) {
-        const { data } = await res.json();
-        console.log(data)
-        dispatch({
-          type: GET_COURSES,
-          payload: data,
-        });
-      } else {
-        console.log("error");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-};
+// export const fetchCourses = () => {
+//   return async (dispatch, getState) => {
+//     const stateRightnow = getState();
+//     try {
+//       const res = await fetch("http://localhost:3007/courses");
+//       if (res.ok) {
+//         const { data } = await res.json();
+//         console.log(data)
+//         dispatch({
+//           type: GET_COURSES,
+//           payload: data,
+//         });
+//       } else {
+//         console.log("error");
+//       }
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+// };
 
 export const tokenConfig = (getState) => {
   const token = getState().auth.token;
