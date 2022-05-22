@@ -29,7 +29,7 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const MyNavBar = () => {
   return (
     <AppBar
-      position="static"
+      position="fixed"
       style={{ background: "white", color: "#000000", height: 75 }}
     >
       <Container maxWidth="xl">

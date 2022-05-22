@@ -19,7 +19,7 @@ const Moreinfo = () => {
       >
         Most Popular Courses
       </h2>
-      <Card
+      <Card className="card"
         sx={{ maxWidth: 300 }}
         style={{
           marginTop: "50px",

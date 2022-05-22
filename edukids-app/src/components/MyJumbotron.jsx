@@ -21,7 +21,7 @@ const MyJumbotron = () => {
         />
         <div
           style={{
-            fontSize: "40px",
+            fontSize: "65px",
             width: "30%",
             position: "absolute",
             color: "black",
@@ -36,11 +36,11 @@ const MyJumbotron = () => {
         </div>
         <div
           style={{
-            fontSize: "15px",
+            fontSize: "18px",
             width: "30%",
             position: "absolute",
             color: "black",
-            top: 200,
+            top: 220,
             left: "10%",
             textAlign: "left",
           }}
@@ -62,7 +62,7 @@ const MyJumbotron = () => {
             }}
             variant="outlined"
           >
-          Register here!
+         <h3>Register here!</h3>
           </Button>
           {/* <Button
             style={{
