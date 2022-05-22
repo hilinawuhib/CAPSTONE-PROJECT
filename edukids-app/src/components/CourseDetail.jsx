@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import AddCourse from "./Addcourses";
 import MyNav from "./MyNav";
+import MyCourse from "./MyCourse"
 
 const CourseDetail = () => {
   const [show, setShow] = useState(false);
@@ -23,8 +24,8 @@ const CourseDetail = () => {
       >
         <Box
           style={{
-            backgroundColor: "rgb(211, 237, 241)",
-            width: "25vw",
+            backgroundColor: "rgb(223, 252, 252)",
+            width: "23vw",
             height: "100vh",
           }}
           gridColumn="span 4"
@@ -41,7 +42,7 @@ const CourseDetail = () => {
             }}
           >
             <AddIcon />
-            Add Activity
+            <h4>Add Activity</h4>
           </Button>
         </Box>
         {show && (

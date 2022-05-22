@@ -11,6 +11,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { fetchCourses } from "../redux/action";
 import AddIcon from "@mui/icons-material/Add";
 import { Link } from "react-router-dom";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const MyCourse = () => {
   const [courses, setCourses] = useState([]);
@@ -41,16 +42,17 @@ const MyCourse = () => {
             flexDirection: "column",
 
             display: "inline-flex",
-            marginLeft: "100px",
-            marginRight: "100px",
-            marginTop: "100px",
+            marginLeft: "10px",
+            marginRight: "10px",
+            marginTop: "80px",
           }}
-          sx={{ maxWidth: 350, marginTop: "50", marginLeft: "100" }}
+          sx={{ maxWidth: 250, marginTop: "50", marginLeft: "100" }}
         >
           <CardMedia
             component="img"
             height="140"
-            image="https://png.pngtree.com/thumb_back/fh260/back_our/20190625/ourmid/pngtree-admissions-training-course-flyer-image_254831.jpg"
+            width="250"
+            image="https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-english-winter-vacation-training-background-image_186800.jpg"
             alt="background"
           />
           <CardContent>
@@ -60,13 +62,19 @@ const MyCourse = () => {
               variant="h6"
               component="div"
             >
-              Course category:{c.category}
+              {c.category}
             </Typography>
             <Typography variant="h6" color="text.secondary">
               Course title:{c.title}
             </Typography>
-            <Button component={Link} to="/CourseDetail" size="small">
-              Details
+            <Button component={Link} to="/CourseDetail" 
+            style={{
+              marginLeft: "10px",
+              color: "black",
+              height: "50px",
+            }}
+            size="small">
+            <ArrowForwardIosIcon/>
             </Button>
           </CardContent>
           <CardActions>

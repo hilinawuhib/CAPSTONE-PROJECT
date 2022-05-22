@@ -45,9 +45,9 @@ const RegisterForm = ({ isAuthenticated, error, register }) => {
       <div className="register-bg">
         <h1
           style={{
-            top: 100,
+            top: 200,
             textAlign: "left",
-            marginLeft: "50px",
+            marginLeft: "80px",
           }}
         >
           {" "}

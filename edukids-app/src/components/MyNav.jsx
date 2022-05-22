@@ -43,6 +43,7 @@ const MyNav = () => {
             <Box
               component="img"
               sx={{
+              marginTop:1,
                 height: 40,
                 width: 120,
                 maxHeight: { xs: 233, md: 150 },
@@ -59,7 +60,7 @@ const MyNav = () => {
                 color: "black",
               }}
             >
-              Home
+              <p>Home</p>
             </Button>
           </Typography>
         </Toolbar>

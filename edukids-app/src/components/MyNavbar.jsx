@@ -97,11 +97,11 @@ const MyNavBar = () => {
 
             <Button
               component={Link}
-              to="/courses"
+              to="/dashboard"
               textAlign="center"
               sx={{ my: 1, color: "black" }}
             >
-              <h4> Courses</h4>
+              <h4> Dashboard</h4>
             </Button>
             <Button textAlign="center" sx={{ my: 1, color: "black" }}>
               <h4> Contact Us</h4>

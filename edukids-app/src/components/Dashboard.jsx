@@ -1,19 +1,26 @@
 import React from "react";
 import AppBar from "@mui/material/AppBar";
+import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
+import { Link } from "react-router-dom";     
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import HomeIcon from "@mui/icons-material/Home";
+import Button from "@mui/material/Button";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import SettingsIcon from '@mui/icons-material/Settings';
-import InfoIcon from '@mui/icons-material/Info';
-import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import SettingsIcon from "@mui/icons-material/Settings";
+import InfoIcon from "@mui/icons-material/Info";
+
+import MyCourse from "./MyCourse";
+import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 const Dashboard = () => {
+  const [showCourses, setShowCourses] = useState(false);
+
   return (
     <div>
       <AppBar
@@ -46,7 +53,7 @@ const Dashboard = () => {
         </Container>
       </AppBar>
       <Box
-        style={{ height: "100%" }}
+        style={{ height: "100vh" }}
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
         gap={2}
@@ -65,18 +72,21 @@ const Dashboard = () => {
               flexWrap: "wrap",
               alignItems: "center",
               marginLeft: "25%",
-              marginTop:"35px"
-              
+              marginTop: "35px",
             }}
           >
             <HomeIcon />
-            <span
+            <Button
+              component={Link}
+              to="/"
               style={{
                 marginLeft: "10px",
+                color: "black",
+                height: "50px",
               }}
             >
-              Home
-            </span>
+              <h4>Home</h4>
+            </Button>
           </div>
           <div
             style={{
@@ -84,18 +94,19 @@ const Dashboard = () => {
               flexWrap: "wrap",
               alignItems: "center",
               marginLeft: "25%",
-              marginTop:"20px"
-              
             }}
           >
             <LibraryBooksIcon />
-            <span
+            <Button
+              onClick={() => setShowCourses((prev) => !prev)}
               style={{
                 marginLeft: "10px",
+                color: "black",
+                height: "50px",
               }}
             >
-              Courses
-            </span>
+              <h4>Courses</h4>
+            </Button>
           </div>
           <div
             style={{
@@ -103,18 +114,18 @@ const Dashboard = () => {
               flexWrap: "wrap",
               alignItems: "center",
               marginLeft: "25%",
-              marginTop:"20px"
-             
             }}
           >
             <AccountBoxIcon />
-            <span
+            <Button
               style={{
                 marginLeft: "10px",
+                color: "black",
+                height: "50px",
               }}
             >
-              Profile
-            </span>
+              <h4>Profile</h4>
+            </Button>
           </div>
           <div
             style={{
@@ -122,18 +133,18 @@ const Dashboard = () => {
               flexWrap: "wrap",
               alignItems: "center",
               marginLeft: "25%",
-              marginTop:"20px"
-             
             }}
           >
             <InfoIcon />
-            <span
+            <Button
               style={{
                 marginLeft: "10px",
+                color: "black",
+                height: "50px",
               }}
             >
-              About
-            </span>
+              <h4>About</h4>
+            </Button>
           </div>
           <div
             style={{
@@ -141,39 +152,44 @@ const Dashboard = () => {
               flexWrap: "wrap",
               alignItems: "center",
               marginLeft: "25%",
-              marginTop:"20px"
-             
             }}
           >
             <SettingsIcon />
-            <span
+            <Button
               style={{
                 marginLeft: "10px",
+                color: "black",
+                height: "50px",
               }}
             >
-              Setting
-            </span>
+              <h4>Setting</h4>
+            </Button>
           </div>
           <div
             style={{
               display: "flex",
-              flexWrap: "wrap",
+
               alignItems: "center",
               marginLeft: "25%",
-              marginTop:"20px"
-             
             }}
           >
-            <QuestionMarkIcon  />
-            <span
+            <QuestionMarkIcon />
+            <Button
               style={{
                 marginLeft: "10px",
+                color: "black",
+                height: "50px",
               }}
             >
-             FAQ
-            </span>
+              <h4>FAQ</h4>
+            </Button>
           </div>
         </Box>
+        {showCourses && (
+          <Box style={{ width: "75vw", height: "100vh" }} gridColumn="span 4">
+            <MyCourse />
+          </Box>
+        )}
       </Box>
     </div>
   );
