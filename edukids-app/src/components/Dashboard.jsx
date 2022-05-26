@@ -61,7 +61,7 @@ const Dashboard = () => {
         <Box
           style={{
             backgroundColor: "white",
-            width: "20vw",
+            width: "25vw",
             height: "100vh",
           }}
           gridColumn="span 3"
@@ -80,7 +80,7 @@ const Dashboard = () => {
               component={Link}
               to="/"
               style={{
-                marginLeft: "10px",
+                marginLeft: "10%",
                 color: "black",
                 height: "50px",
               }}
@@ -100,7 +100,7 @@ const Dashboard = () => {
             <Button
               onClick={() => setShowCourses((prev) => !prev)}
               style={{
-                marginLeft: "10px",
+                marginLeft: "10%",
                 color: "black",
                 height: "50px",
               }}
@@ -119,7 +119,7 @@ const Dashboard = () => {
             <AccountBoxIcon />
             <Button
               style={{
-                marginLeft: "10px",
+                marginLeft: "10%",
                 color: "black",
                 height: "50px",
               }}
@@ -138,7 +138,7 @@ const Dashboard = () => {
             <InfoIcon />
             <Button
               style={{
-                marginLeft: "10px",
+                marginLeft: "10%",
                 color: "black",
                 height: "50px",
               }}
@@ -157,7 +157,7 @@ const Dashboard = () => {
             <SettingsIcon />
             <Button
               style={{
-                marginLeft: "10px",
+                marginLeft: "10%",
                 color: "black",
                 height: "50px",
               }}
@@ -176,7 +176,7 @@ const Dashboard = () => {
             <QuestionMarkIcon />
             <Button
               style={{
-                marginLeft: "10px",
+                marginLeft: "10%",
                 color: "black",
                 height: "50px",
               }}
@@ -186,7 +186,7 @@ const Dashboard = () => {
           </div>
         </Box>
         {showCourses && (
-          <Box style={{ width: "75vw", height: "100vh" }} gridColumn="span 4">
+          <Box style={{ width: "70vw", height: "100vh" }} gridColumn="span 4">
             <MyCourse />
           </Box>
         )}

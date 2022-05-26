@@ -11,6 +11,7 @@ const MyJumbotron = () => {
     <Card>
       <div style={{ position: "relative" }}>
         <CardMedia
+        className="jumbo_card"
           style={{ height: "70%", width: "100%" }}
           component="img"
           image={

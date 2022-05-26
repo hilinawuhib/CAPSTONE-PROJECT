@@ -74,9 +74,13 @@ body {
 .more_info_card {
   border: 1px ghostwhite solid;
   border-radius: 10px !important;
+  background: #4a4d4b;
+
+  box-shadow: 25px 25px 50px #1b1c1b, -25px -25px 50px #2d302f;
 }
 .courselists {
   height: 350px;
   border: 1px ghostwhite solid;
   border-radius: 10px !important;
 }
+
