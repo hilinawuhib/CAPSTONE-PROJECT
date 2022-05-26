@@ -6,12 +6,12 @@ const aComposeFunction = window._REDUX_DEVROOLS_EXTENSION_COMPOSE__ || compose;
 export const initialState = {
   users: {
     token: localStorage.getItem("token"),
-    isAuthenticated: null,
-    isLoading: false,
     user: null,
   },
   course: {
     coursecollection: [],
+    loading:false,
+    error:null
   },
 };
 const bigReducer = combineReducers({

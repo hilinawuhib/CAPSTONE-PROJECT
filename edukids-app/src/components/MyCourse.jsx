@@ -1,22 +1,28 @@
 import * as React from "react";
+import { Component } from "react";
 import { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
+import { connect } from "react-redux";
 import { useSelector, useDispatch } from "react-redux";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import { fetchCourses } from "../redux/action";
+import { GetCourses } from "../redux/action";
 import AddIcon from "@mui/icons-material/Add";
 import { Link } from "react-router-dom";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import AddCourses from "./AddCourses";
 
 const MyCourse = () => {
   const [courses, setCourses] = useState([]);
+  const [show, setShow] = useState(false);
 
-  const fetchCourses = async () => {
+  const GetCourses = async () => {
     try {
       let res = await fetch("http://localhost:3007/courses");
       if (res.ok) {
@@ -29,15 +35,15 @@ const MyCourse = () => {
       console.log(error);
     }
   };
-
   useEffect(() => {
-    fetchCourses();
+    GetCourses();
   }, []);
 
   return (
     <>
       {courses.map((c) => (
         <Card
+          className="courselists"
           style={{
             flexDirection: "column",
 
@@ -67,23 +73,32 @@ const MyCourse = () => {
             <Typography variant="h6" color="text.secondary">
               Course title:{c.title}
             </Typography>
-            <Button component={Link} to="/CourseDetail" 
-            style={{
-              marginLeft: "10px",
-              color: "black",
-              height: "50px",
-            }}
-            size="small">
-            <ArrowForwardIosIcon/>
+            <Button
+              component={Link}
+              to="/CourseDetail"
+              style={{
+                marginLeft: "10px",
+                color: "black",
+                height: "50px",
+              }}
+              size="small"
+            >
+              <ArrowForwardIosIcon />
             </Button>
           </CardContent>
           <CardActions>
             <Button style={{ marginRight: "0px" }} size="small">
               <FavoriteBorderIcon />
             </Button>
+            <Button size="small">
+              <DeleteOutlineIcon />
+            </Button>
           </CardActions>
         </Card>
       ))}
+      <Button>
+        <AddCourses />
+      </Button>
     </>
   );
 };

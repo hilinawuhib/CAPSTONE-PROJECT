@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 
 const Moreinfo = () => {
   return (
-    <div style={{ display: "inline-block" }}>
+    <div style={{ display: "inline-block" ,borderRadius:"10px"}}>
       <h2
         style={{
           marginTop: "50px",
@@ -19,7 +19,7 @@ const Moreinfo = () => {
       >
         Most Popular Courses
       </h2>
-      <Card className="card"
+      <Card className="more_info_card"
         sx={{ maxWidth: 300 }}
         style={{
           marginTop: "50px",
@@ -49,6 +49,7 @@ const Moreinfo = () => {
         </CardActions>
       </Card>
       <Card
+      className="more_info_card"
         sx={{ maxWidth: 300 }}
         style={{
           marginTop: "50px",
@@ -78,6 +79,7 @@ const Moreinfo = () => {
         </CardActions>
       </Card>
       <Card
+      className="more_info_card"
         sx={{ maxWidth: 300 }}
         style={{
           marginTop: "50px",

@@ -8,9 +8,10 @@ import RegisterForm from "./components/RegisterForm";
 import Loginpage from "./components/LoginPage";
 import MyCourse from "./components/MyCourse";
 import Moreinfo from "./components/Moreinfo";
-import Addcourses from "./components/Addcourses";
+import AddActivity from "./components/AddActivity";
 import CourseDetail from "./components/CourseDetail";
-import Dashboard from"./components/Dashboard"
+import Dashboard from"./components/Dashboard";
+import Addcourses from"./components/AddCourses";
 
 
 
@@ -50,14 +51,14 @@ function App() {
               </div>
             }
           ></Route>
-          {/* <Route
+           <Route
             path="/addcourses"
             element={
               <div>
                 <Addcourses />
               </div>
             }
-          ></Route> */}
+          ></Route> 
           <Route
             path="/CourseDetail"
             element={

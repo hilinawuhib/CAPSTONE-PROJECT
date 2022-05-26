@@ -1,18 +1,22 @@
 import Grid from "@mui/material/Grid";
-import * as React  from "react";
-import { useState } from 'react';
+import * as React from "react";
+import { useState } from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import AddIcon from "@mui/icons-material/Add";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
-import AddCourse from "./Addcourses";
+import AddActivity from "./AddActivity";
 import MyNav from "./MyNav";
-import MyCourse from "./MyCourse"
+import MyCourse from "./MyCourse";
 
 const CourseDetail = () => {
+ // const [activity,setActivity]= useState([])
   const [show, setShow] = useState(false);
+  // const fetchActivity=async ()=>{
+  // let response=await fetch("")
+  // }
   return (
     <Box sx={{ width: 1 }}>
       <MyNav />
@@ -30,8 +34,6 @@ const CourseDetail = () => {
           }}
           gridColumn="span 4"
         >
-          
-
           <Button
             onClick={() => setShow((prev) => !prev)}
             style={{
@@ -47,7 +49,7 @@ const CourseDetail = () => {
         </Box>
         {show && (
           <Box style={{ width: "75vw", height: "100vh" }} gridColumn="span 4">
-            <AddCourse />
+            <AddActivity />
           </Box>
         )}
       </Box>

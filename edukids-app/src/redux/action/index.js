@@ -7,7 +7,8 @@ import {
   LOGOUT_SUCCESS,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
-  GET_COURSES,
+  GET_COURSE_INITIALIZE,
+  GET_COURSES_SUCCESS,
   GET_COURSES_FAIL,
 } from "./constants";
 import axios from "axios";
@@ -32,12 +33,12 @@ export const loadUser = () => (dispatch, getState) => {
 };
 
 export const register =
-  ({ firstName, lastName, email, password }) =>
+  ({ firstName, lastName, email, password, role }) =>
   (dispatch) => {
     axios
       .post(
         "http://localhost:3007/users/register",
-        JSON.stringify({ firstName, lastName, email, password }),
+        JSON.stringify({ firstName, lastName, email, password, role }),
         {
           headers: {
             "Content-Type": "application/json",
@@ -75,8 +76,6 @@ export const login =
           type: LOGIN_SUCCESS,
           payload: response.data,
         });
-        dispatch(push('/dashboard'))
-        
       })
       .catch((error) => {
         dispatch({
@@ -84,6 +83,47 @@ export const login =
         });
       });
   };
+export const GetCourses = () => {
+  return (dispatch) => {
+    dispatch(GetCourseInitiate());
+
+    axios
+      .get("http://localhost:3007/courses")
+      .then((response) => {
+        dispatch(GetCourseSuccess(response.data));
+      })
+      .catch((error) => {
+        dispatch(GetCourseFailed(error.message));
+      });
+  };
+};
+
+const GetCourseInitiate = () => {
+  return {
+    type: GET_COURSE_INITIALIZE,
+    payload: {
+      isLoading: true,
+    },
+  };
+};
+
+const GetCourseSuccess = ({coursecollection}) => {
+  return {
+    type: GET_COURSES_SUCCESS,
+    payload: {
+      coursecollection,
+    },
+  };
+};
+
+const GetCourseFailed = (error) => {
+  return {
+    type: GET_COURSES_FAIL,
+    payload: {
+      error,
+    },
+  };
+};
 // export const fetchCourses = () => {
 //   return async (dispatch, getState) => {
 //     const stateRightnow = getState();

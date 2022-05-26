@@ -19,7 +19,7 @@ import { login } from "../redux/action";
 import GoogleIcon from "@mui/icons-material/Google";
 const theme = createTheme();
 
-const Loginpage = ({ isAuthenticated, error, login }) => {
+const Loginpage = ({ login }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -86,8 +86,7 @@ const Loginpage = ({ isAuthenticated, error, login }) => {
                 label="Remember me"
               />
               <Button
-               component={Link}
-               to="/dashboard"
+               
                 type="submit"
                 onClick={handleSubmit}
                 fullWidth
