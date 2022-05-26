@@ -135,24 +135,26 @@ const RegisterForm = ({ isAuthenticated, error, register }) => {
                         onChange={handlePassword}
                       />
                     </Grid>
-                    {/* <Grid item xs={12}>
+                   <Grid item xs={12}>
                       <h4>Role</h4>
-                      <FormGroup
-                        style={{
-                          display: "inline-block",
-                          top: 100,
-                        }}
-                      >
-                         <FormControlLabel
-                          control={<Checkbox color="primary" />}
-                          label="Parent"
-                        />
-                        <FormControlLabel
-                          control={<Checkbox color="primary" />}
-                          label="Tutor"
-                        /> 
-                      </FormGroup>
-                    </Grid> */}
+                      <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+        <InputLabel id="demo-simple-select-standard-label">Age</InputLabel>
+        <Select
+          labelId="demo-simple-select-standard-label"
+          id="demo-simple-select-standard"
+          value={age}
+          onChange={handleChange}
+          label="Age"
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      </FormControl>
+                    </Grid> 
                   </Grid>
                   <Button
                     type="submit"

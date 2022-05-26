@@ -62,9 +62,9 @@ const MyJumbotron = () => {
             }}
             variant="outlined"
           >
-         <h3>Register here!</h3>
+        I am a parent 
           </Button>
-          {/* <Button
+           <Button
             style={{
               color: "black",
               top: 20,
@@ -74,7 +74,7 @@ const MyJumbotron = () => {
             variant="outlined"
           >
             I am a teacher
-          </Button> */}
+          </Button> 
         </div>
         {/* <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={4}>
