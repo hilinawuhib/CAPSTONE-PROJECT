@@ -26,7 +26,7 @@ const MyJumbotron = () => {
             width: "30%",
             position: "absolute",
             color: "black",
-            top: 150,
+            top: "20%",
             left: "10%",
             fontWeight: "bold",
             textAlign: "left",
@@ -41,7 +41,7 @@ const MyJumbotron = () => {
             width: "30%",
             position: "absolute",
             color: "black",
-            top: 220,
+           top:"30%",
             left: "10%",
             textAlign: "left",
           }}
@@ -50,7 +50,7 @@ const MyJumbotron = () => {
           <h3>
             {" "}
             Free , Fun and Easy learning management system for kids - enjoy the
-            difference with our worldclass Tutors!
+            difference with our worldclass course contents!
           </h3>
           <h3>For more info Register now!</h3>
           <Button
@@ -58,7 +58,7 @@ const MyJumbotron = () => {
             to="/register"
             style={{
               color: "black",
-              top: 20,
+              marginTop: "10%",
               fontWeight: "bold",
             }}
             variant="outlined"

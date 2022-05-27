@@ -107,7 +107,7 @@ const GetCourseInitiate = () => {
   };
 };
 
-const GetCourseSuccess = ({coursecollection}) => {
+const GetCourseSuccess = ({ coursecollection }) => {
   return {
     type: GET_COURSES_SUCCESS,
     payload: {

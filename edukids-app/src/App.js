@@ -10,13 +10,11 @@ import MyCourse from "./components/MyCourse";
 import Moreinfo from "./components/Moreinfo";
 import AddActivity from "./components/AddActivity";
 import CourseDetail from "./components/CourseDetail";
-import Dashboard from"./components/Dashboard";
-import Addcourses from"./components/AddCourses";
-
-
+import Dashboard from "./components/Dashboard";
+import Addcourses from "./components/AddCourses";
+import Myprofile from "./components/Profile";
 
 function App() {
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -51,18 +49,19 @@ function App() {
               </div>
             }
           ></Route>
-           <Route
+          <Route
             path="/addcourses"
             element={
               <div>
                 <Addcourses />
               </div>
             }
-          ></Route> 
+          ></Route>
           <Route
             path="/CourseDetail"
             element={
               <div>
+                <MyNav />
                 <CourseDetail />
               </div>
             }
@@ -71,7 +70,15 @@ function App() {
             path="/Dashboard"
             element={
               <div>
-                <Dashboard/>
+                <Dashboard />
+              </div>
+            }
+          ></Route>
+          <Route
+            path="/profiles"
+            element={
+              <div>
+                <Myprofile />
               </div>
             }
           ></Route>

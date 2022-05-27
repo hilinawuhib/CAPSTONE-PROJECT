@@ -13,8 +13,8 @@ import MyNav from "./MyNav";
 import MyCourse from "./MyCourse";
 
 const CourseDetail = () => {
+  const [show, setShow] = useState(false);
 //  const [activity,setActivity]= useState([])
-//   const [show, setShow] = useState(false);
 //    const fetchActivity= async ()=>{
 //      try{
 //        let res=await fetch()
@@ -54,7 +54,7 @@ const CourseDetail = () => {
           }}
           gridColumn="span 4"
         >
-          <h3>{a.text}</h3>
+          <h3></h3>
           <Button
             onClick={() => setShow((prev) => !prev)}
             style={{

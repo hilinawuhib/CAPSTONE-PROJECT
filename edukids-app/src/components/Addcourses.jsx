@@ -131,7 +131,7 @@ const AddCourses = () => {
                     handleInput("category", e.target.value);
                   }}
                 />
-                <Button type="submit" >Add</Button>
+                <Button type="submit" onClick={handleSubmit} >Add</Button>
               </Box>
             </div>
           </Fade>
