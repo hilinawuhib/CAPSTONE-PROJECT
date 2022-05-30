@@ -29,7 +29,7 @@ const AddCourses = () => {
   const [open, setOpen] = useState(false);
   const [courses, setCourses] = useState({
     title: "",
-   category: "",
+    category: "",
   });
 
   const handleOpen = () => {
@@ -68,76 +68,76 @@ const AddCourses = () => {
     } catch (error) {
       console.log(error);
     }
-    }
-
-    return (
-      <div>
-        <Button onClick={handleOpen}>
-          <AddIcon sx={{ fontSize: 50 }} />
-        </Button>
-
-        <Modal
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
-          className={classes.modal}
-          open={open}
-          onClose={handleClose}
-          closeAfterTransition
-          BackdropComponent={Backdrop}
-          BackdropProps={{
-            timeout: 500,
-          }}
-        >
-          <Fade in={open}>
-            <div className={classes.paper}>
-              <h2>Add courses</h2>
-              <Box
-                component="form"
-                onSubmit={handleSubmit}
-                noValidate
-                sx={{ mt: 1 }}
-              >
-                <h5>Course Title</h5>
-                <TextField
-                  variant="outlined"
-                  color="primary"
-                  focused
-                  margin="normal"
-                  required
-                  fullWidth
-                  label="course title "
-                  name="course title "
-                  autoComplete="course title "
-                  autoFocus
-                  value={courses.title}
-                  onChange={(e) => {
-                    handleInput("title", e.target.value);
-                  }}
-                />
-                <h5>Course Category </h5>
-                <TextField
-                  variant="outlined"
-                  focused
-                  margin="normal"
-                  required
-                  fullWidth
-                  name="course category"
-                  label="course category"
-                  type="course category"
-                  id="course category"
-                  autoComplete="course category"
-                  value={courses.category}
-                  onChange={(e) => {
-                    handleInput("category", e.target.value);
-                  }}
-                />
-                <Button type="submit" onClick={handleSubmit} >Add</Button>
-              </Box>
-            </div>
-          </Fade>
-        </Modal>
-      </div>
-    );
   };
+
+  return (
+    <div>
+      <Button onClick={handleOpen}>
+        <AddIcon sx={{ fontSize: 50 }} />
+      </Button>
+
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        className={classes.modal}
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <div className={classes.paper}>
+            <h2>Add courses</h2>
+            <Box
+              component="form"
+              onSubmit={handleSubmit}
+              noValidate
+              sx={{ mt: 1 }}
+            >
+              <h5>Course Title</h5>
+              <TextField
+                variant="outlined"
+                color="primary"
+                focused
+                margin="normal"
+                required
+                fullWidth
+                label="course title "
+                name="course title "
+                autoComplete="course title "
+                autoFocus
+                value={courses.title}
+                onChange={(e) => {
+                  handleInput("title", e.target.value);
+                }}
+              />
+              <h5>Course Category </h5>
+              <TextField
+                variant="outlined"
+                focused
+                margin="normal"
+                required
+                fullWidth
+                name="course category"
+                label="course category"
+                type="course category"
+                id="course category"
+                autoComplete="course category"
+                value={courses.category}
+                onChange={(e) => {
+                  handleInput("category", e.target.value);
+                }}
+              />
+              <Button type="submit">Add</Button>
+            </Box>
+          </div>
+        </Fade>
+      </Modal>
+    </div>
+  );
+};
 
 export default AddCourses;
