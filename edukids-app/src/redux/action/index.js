@@ -12,7 +12,7 @@ import {
   GET_COURSES_FAIL,
 } from "./constants";
 import axios from "axios";
-import { push } from "react-router-redux";
+import { useNavigate } from "react-router-dom";
 
 export const loadUser = () => (dispatch, getState) => {
   dispatch({ type: USER_LOADING });
@@ -61,6 +61,7 @@ export const register =
 export const login =
   ({ email, password }) =>
   (dispatch) => {
+    
     axios
       .post(
         "http://localhost:3007/users/login",
@@ -72,10 +73,15 @@ export const login =
         }
       )
       .then((response) => {
-        dispatch({
-          type: LOGIN_SUCCESS,
-          payload: response.data,
-        });
+        if (response.ok) {
+          dispatch({
+            type: LOGIN_SUCCESS,
+            payload: response.data,
+          });
+          
+        } else {
+          console.log("error");
+        }
       })
       .catch((error) => {
         dispatch({
@@ -83,6 +89,7 @@ export const login =
         });
       });
   };
+
 export const GetCourses = () => {
   return (dispatch) => {
     dispatch(GetCourseInitiate());

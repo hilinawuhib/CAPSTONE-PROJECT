@@ -35,7 +35,7 @@ function App() {
             path="/login"
             element={
               <div>
-                <MyNavBar />
+                
                 <Loginpage />
               </div>
             }

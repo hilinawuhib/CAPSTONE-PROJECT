@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -7,6 +7,7 @@ import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
+import { useNavigate } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { connect } from "react-redux";
@@ -16,10 +17,12 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { login } from "../redux/action";
+import { useDispatch,useSelector } from "react-redux";
 import GoogleIcon from "@mui/icons-material/Google";
 const theme = createTheme();
 
-const Loginpage = ({ login }) => {
+const Loginpage = ({ login, isAuthenticated ,error  }) => {
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -28,8 +31,25 @@ const Loginpage = ({ login }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = { email, password };
-    login(user);
+ login(user)
+ 
+    
   };
+  useEffect(() => {
+    
+    if (error.id === 'LOGIN_FAIL') {
+      console.log("error");
+    } else {
+      console.log(null);
+    }
+
+    if (Box) {
+      if (isAuthenticated) {
+        handleSubmit();
+      }
+    }
+  }, [error, handleSubmit, isAuthenticated]);
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -86,7 +106,6 @@ const Loginpage = ({ login }) => {
                 label="Remember me"
               />
               <Button
-               
                 type="submit"
                 onClick={handleSubmit}
                 fullWidth
@@ -107,22 +126,21 @@ const Loginpage = ({ login }) => {
                   </Link>
                 </Grid>
               </Grid>
-            
-                <Grid>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      alignItems: "center",
-                      marginLeft: "25%",
-                      marginTop: "10%",
-                    }}
-                  >
-                    <GoogleIcon sx={{ fontSize: 30 }} />
-                    <span> Login with Google </span>
-                  </div>
-                </Grid>
-            
+
+              <Grid>
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    alignItems: "center",
+                    marginLeft: "25%",
+                    marginTop: "10%",
+                  }}
+                >
+                  <GoogleIcon sx={{ fontSize: 30 }} />
+                  <span> Login with Google </span>
+                </div>
+              </Grid>
             </Box>
           </Box>
         </div>
@@ -132,6 +150,8 @@ const Loginpage = ({ login }) => {
 };
 
 const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.users.isAuthenticated,
+ 
   error: state.error,
 });
 

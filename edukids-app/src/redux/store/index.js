@@ -5,6 +5,7 @@ import userReducer from "../reducers/userReducer";
 const aComposeFunction = window._REDUX_DEVROOLS_EXTENSION_COMPOSE__ || compose;
 export const initialState = {
   users: {
+    isAuthenticated:null,
     token: localStorage.getItem("token"),
     user: null,
   },

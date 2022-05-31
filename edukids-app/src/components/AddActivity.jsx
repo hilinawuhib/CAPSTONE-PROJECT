@@ -1,10 +1,48 @@
 import React from "react";
 import ReactQuill from "react-quill";
 import Button from "@mui/material/Button";
+import { useState } from "react";
 import ReactEditor, { modules, formats } from "./ReactQuill";
 import "react-quill/dist/quill.snow.css";
 
-const AddActivity = () => {
+const AddActivity = (courseId) => {
+  const [activity, setActivity] = useState({
+    text: "",
+  });
+
+  const handleInput = (fieldName, value) => {
+    setActivity({
+      ...activity,
+      [fieldName]: value,
+    });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      let res = await fetch(
+        "http://localhost:3007/courses/" + courseId + "/activity",
+        {
+          method: "POST",
+          body: JSON.stringify(activity),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+
+      if (res.ok) {
+        setActivity({
+          text: "",
+        });
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="container">
       <div className="content">
@@ -12,8 +50,12 @@ const AddActivity = () => {
         <form>
           <div>
             <div className=" box-content-2 form-group col-md-12 editor">
-              <ReactEditor toolbarId={"t3"} />
+              <ReactEditor onSubmit={handleSubmit} toolbarId={"t3"} />
               <ReactQuill
+                value={activity.text}
+                onChange={(e) => {
+                  handleInput("text", e.target.value);
+                }}
                 theme="snow"
                 placeholder={"course content goes here"}
                 modules={modules("t3")}
@@ -26,6 +68,7 @@ const AddActivity = () => {
 
             <div className="form-group col-sm-12 text-right">
               <Button
+                onSubmit={handleSubmit}
                 style={{
                   marginLeft: "10px",
                   color: "black",
@@ -38,7 +81,6 @@ const AddActivity = () => {
                 <h4
                   style={{
                     color: "white",
-                   
                   }}
                 >
                   {" "}

@@ -18,7 +18,7 @@ import { Link } from "react-router-dom";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import AddCourses from "./AddCourses";
 
-const MyCourse = () => {
+const MyCourse = ({data}) => {
   const [courses, setCourses] = useState([]);
   const [show, setShow] = useState(false);
 
@@ -41,7 +41,7 @@ const MyCourse = () => {
 
   return (
     <>
-      {courses.map((c) => (
+      {courses.map((data) => (
         <Card
           className="courselists"
           style={{
@@ -52,7 +52,7 @@ const MyCourse = () => {
             marginRight: "10px",
             marginTop: "80px",
           }}
-          sx={{ maxWidth: 250, marginTop: "50", marginLeft: "100" }}
+          sx={{ maxWidth: 300, marginTop: "50", marginLeft: "100" }}
         >
           <CardMedia
             component="img"
@@ -68,10 +68,10 @@ const MyCourse = () => {
               variant="h6"
               component="div"
             >
-              {c.category}
+              {data.category}
             </Typography>
             <Typography variant="h6" color="text.secondary">
-              Course title:{c.title}
+              Course title:{data.title}
             </Typography>
             <Button
               component={Link}

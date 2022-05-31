@@ -6,7 +6,18 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
-import { Link } from "react-router-dom";     
+import { Link } from "react-router-dom";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Paper from "@mui/material/Paper";
+import InputBase from "@mui/material/InputBase";
+import Divider from "@mui/material/Divider";
+
+import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import HomeIcon from "@mui/icons-material/Home";
@@ -15,12 +26,13 @@ import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import SettingsIcon from "@mui/icons-material/Settings";
 import InfoIcon from "@mui/icons-material/Info";
-
+import uniqid from "uniqid";
 import MyCourse from "./MyCourse";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
+
 const Dashboard = () => {
   const [showCourses, setShowCourses] = useState(false);
-
+ 
   return (
     <div>
       <AppBar
@@ -48,11 +60,73 @@ const Dashboard = () => {
               />
             </Typography>
 
-            <h4>Dashboard</h4>
+            {/*  <h4>Dashboard</h4> */}
+            <Button
+              component={Link}
+              to="/"
+              style={{
+                marginLeft: "3%",
+                color: "black",
+                height: "50px",
+              }}
+            >
+              <h4>Home</h4>
+            </Button>
+            <Button
+              onClick={() => setShowCourses((prev) => !prev)}
+              style={{
+                marginLeft: "3%",
+                color: "black",
+                height: "50px",
+              }}
+            >
+              <h4>Courses</h4>
+            </Button> 
+
+            <Box sx={{ flexGrow: 0, marginLeft: 2 }}>
+              <Tooltip title="Open settings">
+                <IconButton sx={{ p: 0 }}>
+                  <Paper
+                
+                    component="form"
+                    sx={{
+                      p: "2px 4px",
+                      display: "flex",
+                      alignItems: "center",
+                      width: 400,
+                    }}
+                  >
+                    <InputBase
+                    
+                      sx={{ ml: 1, flex: 1 }}
+                      placeholder="Search "
+                    />
+                    <IconButton
+                      type="submit"
+                      sx={{ p: "10px" }}
+                      aria-label="search"
+                    >
+                      <SearchIcon />
+                    </IconButton>
+                    <Divider
+                      sx={{ height: 28, m: 0.5 }}
+                      orientation="vertical"
+                    />
+                  </Paper>
+                </IconButton>
+              </Tooltip>
+            </Box>
           </Toolbar>
         </Container>
       </AppBar>
-      <Box
+      {showCourses && (
+          <Box style={{ width: "100vw", height: "100vh" }} gridColumn="span 4">
+            <MyCourse />
+          </Box>
+        )}
+     
+
+      {/* <Box
         style={{ height: "100vh" }}
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
@@ -190,7 +264,7 @@ const Dashboard = () => {
             <MyCourse />
           </Box>
         )}
-      </Box>
+      </Box> */}
     </div>
   );
 };
