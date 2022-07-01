@@ -16,7 +16,7 @@ export const initialState = {
   },
 };
 const bigReducer = combineReducers({
-  user: userReducer,
+  users: userReducer,
   course: coursesReducer,
 });
 export const configureStore = createStore(
