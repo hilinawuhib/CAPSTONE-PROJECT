@@ -101,7 +101,7 @@ const MyNavBar = () => {
               textAlign="center"
               sx={{ my: 1, color: "black" }}
             >
-              <h4> Course Categories </h4>
+              <h4> Courses</h4>
             </Button>
             <Button textAlign="center" sx={{ my: 1, color: "black" }}>
               <h4> Contact Us</h4>
