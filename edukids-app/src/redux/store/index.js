@@ -8,6 +8,7 @@ export const initialState = {
     isAuthenticated:null,
     token: localStorage.getItem("token"),
     user: null,
+    error:null
   },
   course: {
     coursecollection: [],

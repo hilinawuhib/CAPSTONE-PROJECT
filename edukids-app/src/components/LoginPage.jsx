@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -17,12 +17,11 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { login } from "../redux/action";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import GoogleIcon from "@mui/icons-material/Google";
 const theme = createTheme();
 
-const Loginpage = ({ login, isAuthenticated ,error  }) => {
-  
+const Loginpage = ({ login, isAuthenticated, error }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -31,13 +30,10 @@ const Loginpage = ({ login, isAuthenticated ,error  }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = { email, password };
- login(user)
- 
-    
+    login(user);
   };
   useEffect(() => {
-    
-    if (error.id === 'LOGIN_FAIL') {
+    if (error === "LOGIN_FAIL") {
       console.log("error");
     } else {
       console.log(null);
@@ -49,7 +45,6 @@ const Loginpage = ({ login, isAuthenticated ,error  }) => {
       }
     }
   }, [error, handleSubmit, isAuthenticated]);
-
 
   return (
     <ThemeProvider theme={theme}>
@@ -150,8 +145,8 @@ const Loginpage = ({ login, isAuthenticated ,error  }) => {
 };
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.users.isAuthenticated,
- 
+  isAuthenticated: state.users.isAuthenticated,
+
   error: state.error,
 });
 
